@@ -1,0 +1,26 @@
+node_modules/
+.cache/
+public
+src/gatsby-types.d.ts
+*.css.d.ts
+dist
+server/index.js
+yarn-error.log
+.DS_Store
+lerna-debug.log
+# vim
+*.swp
+.env
+.next
+tempData.ts
+artifacts
+static/lang/*.json
+public/lang/*.json
+storybook-static
+src/packages/localization/definitions
+src/config/*.js
+config/*.js
+screenshots
+bin
+tsconfig.tsbuildinfo
+.eslintcache

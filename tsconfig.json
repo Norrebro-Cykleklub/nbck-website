@@ -1,0 +1,27 @@
+{
+  "extends": "./node_modules/@shapegames/base-config/tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["/src/*"],
+      "@web/platform/*": ["./node_modules/@shapegames/core/dist/*"],
+      "@client/*": ["./*", "./node_modules/@shapegames/core/dist/*"]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "src/typings",
+      "src/packages/localization/definitions"
+    ],
+    "rootDirs": ["src", ".storybook"]
+  },
+  "include": [".storybook/**/*", "src", "config", "spl.config.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "scripts",
+    "packages",
+    "dangerfile.ts",
+    "src/assets"
+  ]
+}

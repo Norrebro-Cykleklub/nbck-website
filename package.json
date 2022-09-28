@@ -1,0 +1,54 @@
+{
+  "name": "nbck-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "nbck-website",
+  "author": "Mike Jensen",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "dev": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit",
+    "eslint-check": "eslint src/**/*.{ts,tsx}",
+    "eslint-check:fix": "eslint src/**/*.{ts,tsx} --fix"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^2.0.7",
+    "eslint": "8.24.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-next": "12.3.1",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-react": "7.31.8",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "gatsby": "^4.24.0",
+    "gatsby-plugin-image": "^2.24.0",
+    "gatsby-plugin-sharp": "^4.24.0",
+    "gatsby-plugin-sitemap": "^5.24.0",
+    "gatsby-plugin-styled-components": "^5.24.0",
+    "gatsby-source-contentful": "^7.22.0",
+    "gatsby-source-filesystem": "^4.24.0",
+    "gatsby-transformer-sharp": "^4.24.0",
+    "husky": "7.0.4",
+    "lint-staged": "^13.0.0",
+    "prettier": "2.7.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.45",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "typescript": "^4.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
