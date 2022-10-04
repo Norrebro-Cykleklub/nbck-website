@@ -13,7 +13,7 @@ export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
   const openContactForm = (event: OnClickAnchorEvent) => {};
 
   return (
-    <section className="bg-light" id="klubliv">
+    <section className="bg-light" id="klubliv" style={{ overflow: 'hidden' }}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
