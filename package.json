@@ -18,9 +18,16 @@
     "eslint-check:fix": "eslint src/**/*.{ts,tsx} --fix"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/material": "^5.10.7",
+    "@mui/styled-engine-sc": "^5.10.6",
+    "@types/body-scroll-lock": "^3.1.0",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@types/styled-components": "^5.1.26",
     "babel-plugin-styled-components": "^2.0.7",
+    "body-scroll-lock": "^4.0.0-beta.0",
     "eslint": "8.24.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-next": "12.3.1",

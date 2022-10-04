@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import smoothscroll from 'smoothscroll-polyfill';
 import styled from 'styled-components';
-import { UseBooleanStateProps } from '../hooks/use-boolean-state';
 import NavbarInner from './NavbarInner';
 import windowExist from './utils/windowExist';
 
@@ -72,6 +71,6 @@ const NavbarCss = styled.div<{ stickyBackgroundVisibility: number }>`
   width: 100%;
   height: 80px;
   padding: 25px 0;
-  transition: all 0.5s ease;
+  transition: all 0.1s ease;
   background-color: rgba(34, 34, 34, ${p => p.stickyBackgroundVisibility});
 `;
