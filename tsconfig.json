@@ -1,27 +1,26 @@
 {
-  "extends": "./node_modules/@shapegames/base-config/tsconfig.build.json",
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "checkJs": false,
+    "noErrorTruncation": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
-    "paths": {
-      "~/*": ["/src/*"],
-      "@web/platform/*": ["./node_modules/@shapegames/core/dist/*"],
-      "@client/*": ["./*", "./node_modules/@shapegames/core/dist/*"]
-    },
-    "typeRoots": [
-      "node_modules/@types",
-      "src/typings",
-      "src/packages/localization/definitions"
-    ],
+    "typeRoots": ["node_modules/@types", "src/typings"],
     "rootDirs": ["src", ".storybook"]
   },
-  "include": [".storybook/**/*", "src", "config", "spl.config.ts"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "build",
-    "scripts",
-    "packages",
-    "dangerfile.ts",
-    "src/assets"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "build", "scripts"]
 }

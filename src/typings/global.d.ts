@@ -28,5 +28,4 @@ interface FluidImageProps {
 }
 
 type StaticImage = { name: string; childImageSharp: FluidImageProps };
-
-type AllStaticImages = Edges<StaticImages>;
+type AllFiles = Edges<StaticImages & { publicURL: string }>;

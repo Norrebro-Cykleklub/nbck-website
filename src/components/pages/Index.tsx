@@ -84,12 +84,7 @@ export default function Index({ documents, images }: IndexProps) {
         </div>
       </nav>
 
-      <header
-        className="masthead"
-        style={{
-          backgroundImage: `url('${headerBg?.childImageSharp.fluid.src}')`,
-        }}
-      >
+      <header className="masthead">
         <div className="container">
           <div className="intro-text">
             <img

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, HeadFC } from 'gatsby';
+import { graphql, HeadFC, HeadProps } from 'gatsby';
 import Index from '../components/pages/Index';
 import '../css/css001.css';
 import '../css/cssvendor.css';
@@ -8,14 +8,16 @@ import '../css/custom.css';
 interface IndexPageProps {
   data: {
     allContentfulDocument: AllContentfulDocuments;
-    allFile: AllStaticImages;
+    allFile: AllFiles;
   };
   extensions: {};
 }
 
 export default function IndexPage({ data }: IndexPageProps) {
   const documents = data.allContentfulDocument.edges.map(edge => edge.node);
-  const images = data.allFile.edges.map(edge => edge.node);
+  const images = data.allFile.edges
+    .map(edge => edge.node)
+    .filter(node => node.childImageSharp);
 
   return <Index documents={documents as any} images={images} />;
 }
@@ -30,7 +32,6 @@ export const Head: HeadFC = () => {
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
       <title>Nørrebro Cykleklub</title>
-      <script src="bundles/bundles002" />
       <script
         src="https://kit.fontawesome.com/5cd0b3780a.js"
         crossOrigin="anonymous"
@@ -65,6 +66,7 @@ export const indexQuery = graphql`
       edges {
         node {
           name
+          publicURL
           childImageSharp {
             fluid {
               src
