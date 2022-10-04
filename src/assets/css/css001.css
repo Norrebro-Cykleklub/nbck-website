@@ -170,7 +170,7 @@ section h3.section-subheading {
 header.masthead {
   text-align: center;
   color: #fff;
-  background-image: url(/../sourced-files/images/header-bg.jpg);
+  background-image: url('../images/header-bg.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -334,7 +334,7 @@ header.masthead .btn-circle:hover {
   background-color: #fc4c02;
   background-size: contain;
   background-position: center;
-  background-image: url(/../sourced-files/logos/strava_logo_white.png);
+  background-image: url('../images/logos/strava_logo_white.png');
 }
 #foelgos .container .foelgOsButtons ul.social-buttons li a.strava-logo:hover {
   background-color: #1b9400;
@@ -683,7 +683,7 @@ ul.social-buttons li a:hover {
 ul.social-buttons li a.strava-logo {
   background-color: #fc4c02;
   background-size: contain;
-  background-image: url(/../sourced-files/logos/strava_logo_white.png);
+  background-image: url('../images/logos/strava_logo_white.png');
 }
 ul.social-buttons li a.strava-logo:hover {
   background-color: #1b9400;

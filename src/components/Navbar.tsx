@@ -1,84 +1,77 @@
-import React from 'react';
-import useScrollIntoView from '../hooks/scroll-into-view';
-import Link from './Link';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import smoothscroll from 'smoothscroll-polyfill';
+import styled from 'styled-components';
+import { UseBooleanStateProps } from '../hooks/use-boolean-state';
+import NavbarInner from './NavbarInner';
+import windowExist from './utils/windowExist';
 
 interface NavbarProps {
+  /** To override using windows's scroll position */
+  scrollElement?: Nullable<HTMLDivElement>;
   images: StaticImage[];
 }
 
-export default function Navbar({ images }: NavbarProps) {
-  const scrollIntoView = useScrollIntoView();
-  const logoSimple = images.find(img => img.name === 'logo_simple');
+/** Has controlled breakpoints */
+export default function Navbar({ images, scrollElement }: NavbarProps) {
+  const [stickyBackgroundVisibility, setStickyBackgroundVisibility] =
+    useState(0);
+  const pointOfMaxVisibility = 190;
+
+  const handleStickyBackgroundVisibility = useCallback((): void => {
+    if (!windowExist) {
+      return;
+    }
+
+    const scrollPosition = scrollElement
+      ? scrollElement.scrollTop
+      : window.pageYOffset || document.documentElement.scrollTop;
+
+    const scrollProgress = Math.min(scrollPosition, pointOfMaxVisibility);
+
+    setStickyBackgroundVisibility(scrollProgress / pointOfMaxVisibility);
+  }, [scrollElement]);
+
+  // Perform an initial check of scrollposition to determine if sticky navbar should be visible
+  useEffect(() => {
+    handleStickyBackgroundVisibility();
+  }, [handleStickyBackgroundVisibility]);
+
+  useEffect(() => {
+    if (!windowExist) {
+      return;
+    }
+
+    const element = scrollElement || window;
+
+    element.addEventListener('scroll', handleStickyBackgroundVisibility);
+    return () =>
+      element.removeEventListener('scroll', handleStickyBackgroundVisibility);
+  }, [handleStickyBackgroundVisibility, scrollElement]);
+
+  useEffect(() => {
+    if (windowExist) {
+      smoothscroll.polyfill();
+    }
+  }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div className="container">
-        <Link className="navbar-brand" onClick={scrollIntoView('top')}>
-          <img
-            className="logo-responsive"
-            src={logoSimple?.childImageSharp.fluid.srcWebp}
-            srcSet={logoSimple?.childImageSharp.fluid.srcSetWebp}
-            sizes={logoSimple?.childImageSharp.fluid.sizes}
-          />
-        </Link>
-
-        <button
-          className="navbar-toggler navbar-toggler-right"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu
-          <i className="fa fa-bars"></i>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link
-                className="nav-link js-menu-trigger"
-                onClick={scrollIntoView('koncept')}
-              >
-                Koncept
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link js-menu-trigger"
-                onClick={scrollIntoView('foelgos')}
-              >
-                Følg
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link js-menu-trigger"
-                onClick={scrollIntoView('klubliv')}
-              >
-                Klubliv
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link js-menu-trigger"
-                onClick={scrollIntoView('medlem')}
-              >
-                Medlem
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link js-menu-trigger"
-                onClick={scrollIntoView('omOs')}
-              >
-                Om os
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <NavbarCss stickyBackgroundVisibility={stickyBackgroundVisibility}>
+      <NavbarInner
+        images={images}
+        padding={25 - 25 * stickyBackgroundVisibility}
+      />
+    </NavbarCss>
   );
 }
+
+const NavbarCss = styled.div<{ stickyBackgroundVisibility: number }>`
+  z-index: 3000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 25px 0;
+  transition: all 0.5s ease;
+  background-color: rgba(34, 34, 34, ${p => p.stickyBackgroundVisibility});
+`;

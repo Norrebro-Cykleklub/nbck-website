@@ -72,7 +72,10 @@ export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
           <div className="col-md-12 text-center">
             <p className="projects-interested text-muted">
               Interesseret i et samarbejde? Så{' '}
-              <Link onClick={openContactForm}>skriv til os</Link>
+              <Link onClick={openContactForm} style={{ color: '#1b9400' }}>
+                skriv
+              </Link>{' '}
+              til os
             </p>
           </div>
         </div>

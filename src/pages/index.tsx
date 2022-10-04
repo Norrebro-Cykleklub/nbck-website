@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { graphql, HeadFC, HeadProps } from 'gatsby';
 import Index from '../components/pages/Index';
-import '../css/css001.css';
-import '../css/cssvendor.css';
-import '../css/custom.css';
+import '../assets/css/css001.css';
+import '../assets/css/cssvendor.css';
+import '../assets/css/custom.css';
 
 interface IndexPageProps {
   data: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import styleHelpers from '../helpers/style-helpers';
 import useScrollIntoView from '../hooks/scroll-into-view';
 import Link from './Link';
 
@@ -25,14 +26,23 @@ export default function ConceptSection() {
               <i className="fa fa-users fa-stack-1x fa-inverse"></i>
             </span>
             <h4 className="service-heading">Cykelfællesskab</h4>
-            <p className="text-muted">
+            <p
+              className="text-muted"
+              style={{ ...styleHelpers.childrenSameLine }}
+            >
               Nørrebro Cykleklub er først og fremmest et{' '}
               <span className="highlighted">fællesskab</span> for alle, der
               elsker at cykle. Vi favner eliterytteren, der træner mange timer
               om ugen og kører væddeløb i weekenden, og motionisten, der gennem
               struktureret træning vil blive en endnu bedre rytter i godt
-              selskab. Har du lyst til at blive medlem?{' '}
-              <Link onClick={scrollIntoView('medlem')}>Læs mere her</Link>
+              selskab. Har du lyst til at blive medlem?
+              <Link
+                onClick={scrollIntoView('medlem')}
+                style={{ color: '#1b9400' }}
+              >
+                {' '}
+                Læs mere her
+              </Link>
             </p>
           </div>
           <div className="col-md-4 konceptvalue">
@@ -55,14 +65,21 @@ export default function ConceptSection() {
               <i className="fa fa-rocket fa-stack-1x fa-inverse"></i>
             </span>
             <h4 className="service-heading">Nytænkende</h4>
-            <p className="text-muted">
+            <p
+              className="text-muted"
+              style={{ ...styleHelpers.childrenSameLine }}
+            >
               I Nørrebro Cykleklub er det muligt at føre sine{' '}
               <span className="highlighted">idéer</span> ud i livet. Der er
               plads til nytænkning, og vi er ikke bundet af normer for hvordan
               en cykleklub skal fungere. Fokus er altid at skabe de bedste
               betingelser for et sjovt og spændende cykelfællesskab.
               Interesseret i et samarbejde? Så{' '}
-              <Link className="kontaktOsLink" onClick={openContactForm}>
+              <Link
+                className="kontaktOsLink"
+                onClick={openContactForm}
+                style={{ color: '#1b9400' }}
+              >
                 Skriv
               </Link>{' '}
               til os
@@ -73,7 +90,12 @@ export default function ConceptSection() {
           <div className="col-md-12 text-center">
             <ul className="list-inline quicklinks">
               <li className="list-inline-item">
-                <a onClick={scrollIntoView('omOs')}>Læs mere om os</a>
+                <Link
+                  onClick={scrollIntoView('omOs')}
+                  style={{ color: '#1b9400' }}
+                >
+                  Læs mere om os
+                </Link>
               </li>
             </ul>
           </div>

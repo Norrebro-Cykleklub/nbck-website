@@ -54,11 +54,15 @@ export default function AboutUsSection() {
             </p>
             <ul className="list-inline quicklinks">
               <li className="list-inline-item">
-                <Link onClick={openRegulations}>Reglement</Link>
+                <Link onClick={openRegulations} style={{ color: '#1b9400' }}>
+                  Reglement
+                </Link>
               </li>
 
               <li className="list-inline-item">
-                <Link onClick={openBylaws}>Vedtægter</Link>
+                <Link onClick={openBylaws} style={{ color: '#1b9400' }}>
+                  Vedtægter
+                </Link>
               </li>
             </ul>
           </div>

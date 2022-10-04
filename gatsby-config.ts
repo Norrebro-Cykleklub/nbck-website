@@ -25,10 +25,10 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'sourced-files',
-        path: './src/sourced-files/',
+        name: 'images',
+        path: './src/assets/images',
       },
-      __key: 'files',
+      __key: 'images',
     },
   ],
 };

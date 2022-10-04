@@ -26,7 +26,7 @@ export default function MemberSection() {
               tænke dig at blive en bedre rytter gennem træning med
               klubkammerater. Hvis du kan genkende dig selv i nedenstående, så
               er du måske vores nye klubkammerat:
-              <ul className="text-muted-white ">
+              <ul className="text-muted-white" style={{ marginTop: '1rem' }}>
                 <li>
                   En cykeltur på 2-3 timer med indlagte intervaller er lige dig
                   (vi kører selvfølgelig også både kort rolige turer og langfart
@@ -63,7 +63,9 @@ export default function MemberSection() {
                 </Link>
               </div>
               <div className="col-md-12 medlemInfoSection">
-                <Link onClick={openPriceBenefits}>Medlemsfordele og pris</Link>
+                <Link onClick={openPriceBenefits} style={{ color: '#1b9400' }}>
+                  Medlemsfordele og pris
+                </Link>
               </div>
             </div>
           </div>

@@ -6,12 +6,12 @@ interface HeaderProps {
   images: StaticImage[];
 }
 
-export default function Navbar({ images }: HeaderProps) {
+export default function Header({ images }: HeaderProps) {
   const scrollIntoView = useScrollIntoView();
   const nbckLogo = images.find(img => img.name === 'Norrebro_logo');
 
   return (
-    <header className="masthead">
+    <header className="masthead" style={{ height: 1142 }}>
       <div className="container">
         <div className="intro-text">
           <img
