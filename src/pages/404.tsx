@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { navigate } from 'gatsby';
+import Layout from '../components/Layout/Layout';
 
 export default function NotFoundPage() {
   useEffect(() => {
@@ -7,8 +8,8 @@ export default function NotFoundPage() {
   }, []);
 
   return (
-    <div>
+    <Layout>
       <h1>Siden blev ikke fundet</h1>
-    </div>
+    </Layout>
   );
 }

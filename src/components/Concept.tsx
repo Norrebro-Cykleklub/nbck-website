@@ -1,11 +1,12 @@
 import React from 'react';
 import styleHelpers from '../helpers/style-helpers';
 import useScrollIntoView from '../hooks/scroll-into-view';
+import { useLayoutContext } from './Layout/Context';
 import Link from './Link';
 
 export default function ConceptSection() {
+  const { contactForm } = useLayoutContext();
   const scrollIntoView = useScrollIntoView();
-  const openContactForm = (event: OnClickAnchorEvent) => {};
 
   return (
     <section className="bg-light" id="koncept">
@@ -77,7 +78,7 @@ export default function ConceptSection() {
               Interesseret i et samarbejde? Så{' '}
               <Link
                 className="kontaktOsLink"
-                onClick={openContactForm}
+                onClick={contactForm.show}
                 style={{ color: '#1b9400' }}
               >
                 Skriv

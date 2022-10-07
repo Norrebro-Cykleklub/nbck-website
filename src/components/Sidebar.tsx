@@ -4,7 +4,6 @@ import Fade from '@mui/material/Fade';
 import Slide from '@mui/material/Slide';
 import useLockBodyScroll from '../hooks/use-lock-body-scroll';
 import useScrollIntoView from '../hooks/scroll-into-view';
-import Link from './Link';
 
 const styles = {
   modal: (backdropVisible: boolean) => {
@@ -90,16 +89,6 @@ export default function Sidebar({ isOpen, close }: SidebarProps) {
     setLockBodyScroll(visible);
   }, []);
 
-  const handleSamePage = useCallback(() => {
-    if (window) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
-    close();
-  }, [close]);
-
   const Item = useCallback(
     ({ text, onClick }: ItemProps): JSX.Element => {
       return (
@@ -121,7 +110,7 @@ export default function Sidebar({ isOpen, close }: SidebarProps) {
         </div>
       );
     },
-    [close, handleSamePage],
+    [close],
   );
 
   const timeout = 700;

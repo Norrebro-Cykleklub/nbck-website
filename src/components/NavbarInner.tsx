@@ -5,14 +5,13 @@ import Link from './Link';
 import Sidebar from './Sidebar';
 
 interface NavbarProps {
-  images: StaticImage[];
+  logo?: StaticImage;
   padding: number;
 }
 
-export default function NavbarInner({ images, padding }: NavbarProps) {
+export default function NavbarInner({ logo, padding }: NavbarProps) {
   const [menuVisible, showMenu, hideMenu] = useBooleanState(false);
   const scrollIntoView = useScrollIntoView();
-  const logoSimple = images.find(img => img.name === 'logo_simple');
 
   return (
     <>
@@ -27,9 +26,9 @@ export default function NavbarInner({ images, padding }: NavbarProps) {
           <Link className="navbar-brand" onClick={scrollIntoView('top')}>
             <img
               className="logo-responsive"
-              src={logoSimple?.childImageSharp.fluid.srcWebp}
-              srcSet={logoSimple?.childImageSharp.fluid.srcSetWebp}
-              sizes={logoSimple?.childImageSharp.fluid.sizes}
+              src={logo?.childImageSharp.fluid.srcWebp}
+              srcSet={logo?.childImageSharp.fluid.srcSetWebp}
+              sizes={logo?.childImageSharp.fluid.sizes}
             />
           </Link>
 

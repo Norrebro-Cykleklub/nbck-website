@@ -6,7 +6,6 @@ import FollowUsSection from '../FollowUs';
 import Footer from '../Footer';
 import Header from '../Header';
 import MemberSection from '../Member';
-import Navbar from '../Navbar';
 
 interface IndexProps {
   documents: StaticImage[];
@@ -16,7 +15,6 @@ interface IndexProps {
 export default function Index({ images }: IndexProps) {
   return (
     <>
-      <Navbar images={images} />
       <Header images={images} />
       <ConceptSection />
       <FollowUsSection />

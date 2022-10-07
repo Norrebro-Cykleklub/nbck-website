@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLayoutContext } from './Layout/Context';
 import Link from './Link';
 
 interface ClubLifeSectionProps {
@@ -6,11 +7,10 @@ interface ClubLifeSectionProps {
 }
 
 export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
+  const { contactForm } = useLayoutContext();
   const training = images.find(img => img.name === 'training');
   const races = images.find(img => img.name === 'races');
   const travels = images.find(img => img.name === 'travels');
-
-  const openContactForm = (event: OnClickAnchorEvent) => {};
 
   return (
     <section className="bg-light" id="klubliv" style={{ overflow: 'hidden' }}>
@@ -72,7 +72,7 @@ export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
           <div className="col-md-12 text-center">
             <p className="projects-interested text-muted">
               Interesseret i et samarbejde? Så{' '}
-              <Link onClick={openContactForm} style={{ color: '#1b9400' }}>
+              <Link onClick={contactForm.show} style={{ color: '#1b9400' }}>
                 skriv
               </Link>{' '}
               til os

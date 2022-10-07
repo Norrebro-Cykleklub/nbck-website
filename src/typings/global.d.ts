@@ -11,6 +11,7 @@ type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 type SetRef<T> = SetState<Nullable<T>> | ((node: Nullable<T>) => void);
 type KeyValObj<T> = { [key: string]: T };
 type OnClickAnchorEvent = React.MouseEvent<HTMLAnchorElement, MouseEvent>;
+type OnClickButtonEvent = React.MouseEvent<HTMLButtonElement, MouseEvent>;
 
 interface Edges<T> {
   edges: {

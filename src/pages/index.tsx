@@ -1,25 +1,42 @@
-import * as React from 'react';
-import { graphql, HeadFC, HeadProps } from 'gatsby';
+import React, { useMemo } from 'react';
+import { graphql, HeadFC } from 'gatsby';
 import Index from '../components/pages/Index';
 import '../assets/css/css001.css';
 import '../assets/css/cssvendor.css';
 import '../assets/css/custom.css';
+import Layout from '../components/Layout/Layout';
 
 interface IndexPageProps {
   data: {
     allContentfulDocument: AllContentfulDocuments;
     allFile: AllFiles;
   };
-  extensions: {};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  extensions: any;
 }
 
 export default function IndexPage({ data }: IndexPageProps) {
-  const documents = data.allContentfulDocument.edges.map(edge => edge.node);
-  const images = data.allFile.edges
-    .map(edge => edge.node)
-    .filter(node => node.childImageSharp);
+  const documents = useMemo(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    () => data.allContentfulDocument.edges.map(edge => edge.node) as any,
+    [data.allContentfulDocument.edges],
+  );
 
-  return <Index documents={documents as any} images={images} />;
+  const images = useMemo(
+    () =>
+      data.allFile.edges
+        .map(edge => edge.node)
+        .filter(node => node.childImageSharp),
+    [data.allFile.edges],
+  );
+
+  const logo = images.find(img => img.name === 'logo_simple');
+
+  return (
+    <Layout logo={logo}>
+      <Index documents={documents} images={images} />
+    </Layout>
+  );
 }
 
 export const Head: HeadFC = () => {

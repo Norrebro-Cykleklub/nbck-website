@@ -7,11 +7,11 @@ import windowExist from './utils/windowExist';
 interface NavbarProps {
   /** To override using windows's scroll position */
   scrollElement?: Nullable<HTMLDivElement>;
-  images: StaticImage[];
+  logo?: StaticImage;
 }
 
 /** Has controlled breakpoints */
-export default function Navbar({ images, scrollElement }: NavbarProps) {
+export default function Navbar({ logo, scrollElement }: NavbarProps) {
   const [stickyBackgroundVisibility, setStickyBackgroundVisibility] =
     useState(0);
   const pointOfMaxVisibility = 190;
@@ -55,10 +55,7 @@ export default function Navbar({ images, scrollElement }: NavbarProps) {
 
   return (
     <NavbarCss stickyBackgroundVisibility={stickyBackgroundVisibility}>
-      <NavbarInner
-        images={images}
-        padding={25 - 25 * stickyBackgroundVisibility}
-      />
+      <NavbarInner logo={logo} padding={25 - 25 * stickyBackgroundVisibility} />
     </NavbarCss>
   );
 }
