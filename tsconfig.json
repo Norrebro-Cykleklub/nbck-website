@@ -20,6 +20,6 @@
     "typeRoots": ["./node_modules/@types", "./src/typings"],
     "rootDirs": ["./src"]
   },
-  "include": ["./src", "./gatsby-config.ts"],
+  "include": ["./src", "./gatsby-config.ts", "lambda"],
   "exclude": ["./node_modules", "./dist", "./build", "./.cache", "./public"]
 }
