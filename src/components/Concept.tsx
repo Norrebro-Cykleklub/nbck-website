@@ -3,6 +3,7 @@ import styleHelpers from '../helpers/style-helpers';
 import useScrollIntoView from '../hooks/scroll-into-view';
 import { useLayoutContext } from './Layout/Context';
 import Link from './Link';
+import WithHover from './WithHover';
 
 export default function ConceptSection() {
   const { contactForm } = useLayoutContext();
@@ -37,13 +38,9 @@ export default function ConceptSection() {
               om ugen og kører væddeløb i weekenden, og motionisten, der gennem
               struktureret træning vil blive en endnu bedre rytter i godt
               selskab. Har du lyst til at blive medlem?
-              <Link
-                onClick={scrollIntoView('medlem')}
-                style={{ color: '#1b9400' }}
-              >
-                {' '}
-                Læs mere her
-              </Link>
+              <WithHover onClick={scrollIntoView('medlem')}>
+                <span style={{ color: '#1b9400' }}> Læs mere her</span>
+              </WithHover>
             </p>
           </div>
           <div className="col-md-4 konceptvalue">

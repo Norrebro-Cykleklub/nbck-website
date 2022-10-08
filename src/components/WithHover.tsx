@@ -11,7 +11,7 @@ export default function WithHover({ onClick, children }: WithHoverProps) {
   return <WithHoverCss onClick={onClick}>{children}</WithHoverCss>;
 }
 
-const WithHoverCss = styled.div`
+const WithHoverCss = styled.span`
   transition: 0.3s;
   &:hover {
     cursor: pointer;
