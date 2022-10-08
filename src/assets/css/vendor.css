@@ -455,7 +455,7 @@ mark {
   color: #868e96;
 }
 .blockquote-footer::before {
-  content: '— ';
+  content: '— ';
 }
 .img-fluid {
   max-width: 100%;
@@ -7490,15 +7490,17 @@ a.text-dark:hover {
 }
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../vendor/font-awesome/fonts/fontawesome-webfont.eot');
-  src: url('../vendor/font-awesome/fonts/fontawesome-webfont.eot')
+  src: url('../vendor/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0');
+  src: url('../vendor/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0')
       format('embedded-opentype'),
-    url('../vendor/font-awesome/fonts/fontawesome-webfont.woff2')
+    url('../vendor/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0')
       format('woff2'),
-    url('../vendor/font-awesome/fonts/fontawesome-webfont.woff') format('woff'),
-    url('../vendor/font-awesome/fonts/fontawesome-webfont.ttf')
+    url('../vendor/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0')
+      format('woff'),
+    url('../vendor/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0')
       format('truetype'),
-    url('../vendor/font-awesome/fonts/fontawesome-webfont.svg') format('svg');
+    url('../vendor/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular')
+      format('svg');
   font-weight: normal;
   font-style: normal;
 }

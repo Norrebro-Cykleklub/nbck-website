@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { graphql, HeadFC } from 'gatsby';
 import Index from '../components/pages/Index';
-import '../assets/css/css001.css';
-import '../assets/css/cssvendor.css';
-import '../assets/css/custom.css';
 import Layout from '../components/Layout/Layout';
+import '../assets/css/vendor.css';
+import '../assets/css/custom.css';
+import Pixlee from '../components/Pixlee';
 
 interface IndexPageProps {
   data: {
@@ -35,6 +35,7 @@ export default function IndexPage({ data }: IndexPageProps) {
   return (
     <Layout logo={logo}>
       <Index documents={documents} images={images} />
+      <Pixlee />
     </Layout>
   );
 }
