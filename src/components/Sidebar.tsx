@@ -95,6 +95,7 @@ export default function Sidebar({ isOpen, close }: SidebarProps) {
         <div style={styles.sidebar.menu.item as React.CSSProperties}>
           <li
             className="nav-item"
+            style={{ listStyle: 'none' }}
             onClick={() => {
               close();
               onClick();
