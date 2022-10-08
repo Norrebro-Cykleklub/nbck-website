@@ -15,8 +15,6 @@ export default function NavbarInner({ logo, padding }: NavbarProps) {
   const scrollIntoView = useScrollIntoView();
   const { inView } = useSectionInView();
 
-  console.log(inView);
-
   return (
     <>
       <Sidebar isOpen={menuVisible} close={hideMenu} />
