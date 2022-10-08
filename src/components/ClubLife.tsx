@@ -35,6 +35,7 @@ export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
               <img
                 className="img-fluid"
                 src={training?.childImageSharp.fluid.src}
+                srcSet={training?.childImageSharp.fluid.srcSet}
                 alt=""
               />
             </Link>
@@ -49,6 +50,7 @@ export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
               <img
                 className="img-fluid"
                 src={races?.childImageSharp.fluid.src}
+                srcSet={races?.childImageSharp.fluid.srcSet}
                 alt=""
               />
             </Link>
@@ -63,6 +65,7 @@ export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
               <img
                 className="img-fluid"
                 src={travels?.childImageSharp.fluid.src}
+                srcSet={travels?.childImageSharp.fluid.srcSet}
                 alt=""
               />
             </Link>
