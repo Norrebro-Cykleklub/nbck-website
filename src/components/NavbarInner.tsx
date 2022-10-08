@@ -43,8 +43,7 @@ export default function NavbarInner({ logo, padding }: NavbarProps) {
             aria-label="Toggle navigation"
             onClick={menuVisible ? hideMenu : showMenu}
           >
-            Menu
-            <i className="fa fa-bars"></i>
+            Menu <i className="fa fa-bars"></i>
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
