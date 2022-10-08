@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import DialogSlide from '../DialogSlide';
 import LegacyModal from './LegacyModal';
 
 interface DialogProps {
   open: boolean;
   onClose: () => void;
-  children: React.ReactNode;
+  children: (props: { closeButton: JSX.Element }) => React.ReactNode;
 }
 
-export default function Dialog({ open, onClose, children }: DialogProps) {
+export default function Dialog({
+  open,
+  onClose,
+  children: _children,
+}: DialogProps) {
+  const closeButton = useMemo(() => {
+    return (
+      <button
+        className="btn btn-primary"
+        data-dismiss="modal"
+        type="button"
+        onClick={onClose}
+      >
+        <i className="fa fa-times"></i> Tilbage
+      </button>
+    );
+  }, [onClose]);
+
+  const children = useMemo(
+    () => _children({ closeButton }),
+    [_children, closeButton],
+  );
+
   return (
     <DialogSlide
       open={open}

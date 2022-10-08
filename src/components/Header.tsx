@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useScrollIntoView from '../hooks/scroll-into-view';
 import useResizeObserver from '../hooks/use-resize-observer';
-import Link from './Link';
 import windowSafe from './utils/windowSafe';
 import WithHover from './WithHover';
 
