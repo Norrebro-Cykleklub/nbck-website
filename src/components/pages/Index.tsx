@@ -8,7 +8,6 @@ import Header from '../Header';
 import MemberSection from '../Member';
 
 interface IndexProps {
-  documents: StaticImage[];
   images: StaticImage[];
 }
 

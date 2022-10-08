@@ -1,7 +1,6 @@
 import React from 'react';
 import { useBooleanState } from '../hooks/use-boolean-state';
-import ByLawsDialog from './Dialogs/Bylaws';
-import RegulationsDialog from './Dialogs/Regulations';
+import ContentfulDocumentDialog from './Dialogs/ContentfulDocumentDialog';
 import { useLayoutContext } from './Layout/Context';
 import Link from './Link';
 
@@ -17,8 +16,15 @@ export default function AboutUsSection() {
 
   return (
     <>
-      <ByLawsDialog visible={bylawsVisible} onClose={closeBylawsDialog} />
-      <RegulationsDialog
+      <ContentfulDocumentDialog
+        id="bylaws"
+        textAlign="center"
+        visible={bylawsVisible}
+        onClose={closeBylawsDialog}
+      />
+      <ContentfulDocumentDialog
+        id="regulations"
+        textAlign="left"
         visible={regulationsDialogVisible}
         onClose={closeRegulationsDialog}
       />

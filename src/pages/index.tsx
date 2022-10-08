@@ -8,7 +8,6 @@ import '../assets/css/custom.css';
 
 interface IndexPageProps {
   data: {
-    allContentfulDocument: AllContentfulDocuments;
     allFile: AllFiles;
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -16,12 +15,6 @@ interface IndexPageProps {
 }
 
 export default function IndexPage({ data }: IndexPageProps) {
-  const documents = useMemo(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    () => data.allContentfulDocument.edges.map(edge => edge.node) as any,
-    [data.allContentfulDocument.edges],
-  );
-
   const images = useMemo(
     () =>
       data.allFile.edges
@@ -34,8 +27,8 @@ export default function IndexPage({ data }: IndexPageProps) {
 
   return (
     <Layout logo={logo}>
-      <Index documents={documents} images={images} />
-      <Pixlee />
+      <Index images={images} />
+      <Pixlee />{' '}
     </Layout>
   );
 }
@@ -98,18 +91,6 @@ export const indexQuery = graphql`
               srcSetWebp
               srcWebp
             }
-          }
-        }
-      }
-    }
-    allContentfulDocument {
-      edges {
-        node {
-          id
-          title
-          headline
-          text {
-            raw
           }
         }
       }

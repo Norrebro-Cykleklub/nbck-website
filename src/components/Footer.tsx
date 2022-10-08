@@ -1,7 +1,6 @@
 import React from 'react';
 import { useBooleanState } from '../hooks/use-boolean-state';
-import PrivacyPolicyDialog from './Dialogs/PrivacyPolicy';
-import TosDialog from './Dialogs/Tos';
+import ContentfulDocumentDialog from './Dialogs/ContentfulDocumentDialog';
 import Link from './Link';
 
 export default function FooterSection() {
@@ -11,8 +10,15 @@ export default function FooterSection() {
 
   return (
     <>
-      <TosDialog visible={tosVisible} onClose={closeTos} />
-      <PrivacyPolicyDialog
+      <ContentfulDocumentDialog
+        id="tos"
+        textAlign="center"
+        visible={tosVisible}
+        onClose={closeTos}
+      />
+      <ContentfulDocumentDialog
+        id="privacyPolicy"
+        textAlign="left"
         visible={privacyPolicyVisible}
         onClose={closePrivacyPolicy}
       />

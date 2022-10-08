@@ -17,10 +17,9 @@
     "importHelpers": true,
     "removeComments": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
-    "typeRoots": ["node_modules/@types", "src/typings"],
-    "rootDirs": ["src", ".storybook"]
+    "typeRoots": ["./node_modules/@types", "./src/typings"],
+    "rootDirs": ["./src"]
   },
-  "include": ["src", "gatsby-config.ts"],
-  "exclude": ["node_modules", "dist", "build", "scripts"]
+  "include": ["./src", "./gatsby-config.ts"],
+  "exclude": ["./node_modules", "./dist", "./build", "./.cache", "./public"]
 }

@@ -20,8 +20,9 @@ export default function Dialog({
         data-dismiss="modal"
         type="button"
         onClick={onClose}
+        style={{ display: 'flex', alignItems: 'center', margin: 'auto' }}
       >
-        <i className="fa fa-times"></i> Tilbage
+        <i className="fa fa-times" style={{ marginRight: 5 }}></i> Tilbage
       </button>
     );
   }, [onClose]);

@@ -30,7 +30,15 @@ export default function LegacyModal({
               <div className="rl"></div>
             </div>
           </div>
-          <div className="container">{children}</div>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-10 mx-auto">
+                <div id="nbroModalBody" className="modal-body">
+                  {children}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
