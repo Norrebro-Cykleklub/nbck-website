@@ -78,7 +78,7 @@ export default function ConceptSection() {
                 onClick={contactForm.show}
                 style={{ color: '#1b9400' }}
               >
-                Skriv
+                skriv
               </Link>{' '}
               til os
             </p>
