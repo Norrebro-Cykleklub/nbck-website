@@ -29,7 +29,7 @@ export default function FooterSection() {
                 <li className="list-inline-item">
                   <Link
                     target="_blank"
-                    href="https://www.instagram.com/norrebro_ck"
+                    href="https://www.instagram.com/norrebro_cykleklub/"
                   >
                     <i className="fa fa-instagram"></i>
                   </Link>
@@ -37,7 +37,7 @@ export default function FooterSection() {
                 <li className="list-inline-item">
                   <Link
                     target="_blank"
-                    href="https://www.facebook.com/NorrebroCK"
+                    href="https://www.facebook.com/groups/1999819213570632"
                   >
                     <i className="fa fa-facebook"></i>
                   </Link>

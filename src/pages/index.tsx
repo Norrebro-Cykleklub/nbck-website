@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import { graphql, HeadFC } from 'gatsby';
 import Index from '../components/pages/Index';
 import Layout from '../components/Layout/Layout';
+import Pixlee from '../components/Pixlee';
 import '../assets/css/vendor.css';
 import '../assets/css/custom.css';
-import Pixlee from '../components/Pixlee';
 
 interface IndexPageProps {
   data: {
@@ -40,7 +40,16 @@ export default function IndexPage({ data }: IndexPageProps) {
   );
 }
 
-export const Head: HeadFC = () => {
+export const Head: HeadFC<IndexPageProps['data']> = ({ data }) => {
+  const files = useMemo(
+    () => data.allFile.edges.map(edge => edge.node),
+    [data.allFile.edges],
+  );
+
+  const [modernizrJs] = ['modernizr-2.6.2.js'].map(
+    name => files.find(file => file.publicURL.endsWith(name))?.publicURL,
+  );
+
   return (
     <>
       <meta name="description" content="Nørrebro Cykleklub" />
@@ -50,10 +59,7 @@ export const Head: HeadFC = () => {
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
       <title>Nørrebro Cykleklub</title>
-      <script
-        src="https://kit.fontawesome.com/5cd0b3780a.js"
-        crossOrigin="anonymous"
-      />
+      <script src={modernizrJs} />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
         rel="stylesheet"
