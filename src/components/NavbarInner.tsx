@@ -20,7 +20,6 @@ export default function NavbarInner({ logo, padding }: NavbarProps) {
         className="navbar navbar-expand-lg navbar-dark fixed-top"
         id="mainNav"
         style={{ paddingTop: padding, paddingBottom: padding }}
-        onClick={showMenu}
       >
         <div className="container">
           <Link className="navbar-brand" onClick={scrollIntoView('top')}>
