@@ -14,9 +14,13 @@ interface ExternalLinkProps extends AnchorProps {
   href?: string;
 }
 
-export default function Link({ children, ...props }: ExternalLinkProps) {
+export default function Link({
+  onClick,
+  children,
+  ...props
+}: ExternalLinkProps) {
   return (
-    <WithHover>
+    <WithHover onClick={onClick}>
       <a {...props}>{children}</a>
     </WithHover>
   );

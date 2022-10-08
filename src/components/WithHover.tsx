@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface WithHoverProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onClick?: (params?: any) => void;
   children: React.ReactNode;
 }
 
-export default function WithHover({ children }: WithHoverProps) {
-  return <WithHoverCss>{children}</WithHoverCss>;
+export default function WithHover({ onClick, children }: WithHoverProps) {
+  return <WithHoverCss onClick={onClick}>{children}</WithHoverCss>;
 }
 
 const WithHoverCss = styled.div`
