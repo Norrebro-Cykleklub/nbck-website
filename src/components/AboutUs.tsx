@@ -1,11 +1,13 @@
 import React from 'react';
 import { useBooleanState } from '../hooks/use-boolean-state';
+import useSectionInView from '../hooks/use-section-in-view';
 import ContentfulDocumentDialog from './Dialogs/ContentfulDocumentDialog';
 import { useLayoutContext } from './Layout/Context';
 import Link from './Link';
 
 export default function AboutUsSection() {
   const { contactForm } = useLayoutContext();
+  const { ref } = useSectionInView('omOs');
   const [bylawsVisible, openBylawsDialog, closeBylawsDialog] =
     useBooleanState(false);
   const [
@@ -28,7 +30,7 @@ export default function AboutUsSection() {
         visible={regulationsDialogVisible}
         onClose={closeRegulationsDialog}
       />
-      <section className="bg-light" id="omOs">
+      <section className="bg-light" id="omOs" ref={ref}>
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">

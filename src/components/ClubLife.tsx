@@ -1,4 +1,5 @@
 import React from 'react';
+import useSectionInView from '../hooks/use-section-in-view';
 import { useLayoutContext } from './Layout/Context';
 import Link from './Link';
 
@@ -8,12 +9,19 @@ interface ClubLifeSectionProps {
 
 export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
   const { contactForm } = useLayoutContext();
+  const { ref } = useSectionInView('klubliv');
+
   const training = images.find(img => img.name === 'training');
   const races = images.find(img => img.name === 'races');
   const travels = images.find(img => img.name === 'travels');
 
   return (
-    <section className="bg-light" id="klubliv" style={{ overflow: 'hidden' }}>
+    <section
+      className="bg-light"
+      id="klubliv"
+      ref={ref}
+      style={{ overflow: 'hidden' }}
+    >
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">

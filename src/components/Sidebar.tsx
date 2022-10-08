@@ -3,7 +3,7 @@ import styleHelpers from '../helpers/style-helpers';
 import Fade from '@mui/material/Fade';
 import Slide from '@mui/material/Slide';
 import useLockBodyScroll from '../hooks/use-lock-body-scroll';
-import useScrollIntoView from '../hooks/scroll-into-view';
+import useScrollIntoView from '../hooks/use-scroll-into-view';
 
 const styles = {
   modal: (backdropVisible: boolean) => {

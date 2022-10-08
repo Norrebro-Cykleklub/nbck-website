@@ -47,10 +47,12 @@
     "gatsby-source-filesystem": "^4.24.0",
     "gatsby-transformer-sharp": "^4.24.0",
     "husky": "7.0.4",
+    "intersection-observer": "^0.12.2",
     "lint-staged": "^13.0.0",
     "prettier": "2.7.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-intersection-observer": "^9.4.0",
     "resize-observer-polyfill": "^1.5.1",
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.3.6"

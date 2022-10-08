@@ -1,11 +1,25 @@
-import React, { createContext, ReactNode, useContext, useMemo } from 'react';
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 import { useBooleanState } from '../../hooks/use-boolean-state';
 
 interface ContextProviderProps {
   children: ReactNode;
 }
 
+export type Sections = Nullable<
+  'koncept' | 'foelgos' | 'klubliv' | 'medlem' | 'omOs'
+>;
+
 interface LayoutContextProps {
+  sectionInView: {
+    id: Sections;
+    set: React.Dispatch<React.SetStateAction<Sections>>;
+  };
   contactForm: {
     visible: boolean;
     show: () => void;
@@ -14,6 +28,10 @@ interface LayoutContextProps {
 }
 
 const LayoutContext = createContext<LayoutContextProps>({
+  sectionInView: {
+    id: null,
+    set: () => null,
+  },
   contactForm: {
     visible: false,
     show: () => null,
@@ -24,6 +42,7 @@ const LayoutContext = createContext<LayoutContextProps>({
 export const useLayoutContext = () => useContext(LayoutContext);
 
 export default function LayoutProvider(props: ContextProviderProps) {
+  const [sectionInView, setSectionInView] = useState(null as Sections);
   const [contactFormVisible, showContactForm, hideContactForm] =
     useBooleanState(false);
 
@@ -31,13 +50,17 @@ export default function LayoutProvider(props: ContextProviderProps) {
     <LayoutContext.Provider
       value={useMemo(
         () => ({
+          sectionInView: {
+            id: sectionInView,
+            set: setSectionInView,
+          },
           contactForm: {
             visible: contactFormVisible,
             show: showContactForm,
             hide: hideContactForm,
           },
         }),
-        [contactFormVisible, hideContactForm, showContactForm],
+        [contactFormVisible, hideContactForm, sectionInView, showContactForm],
       )}
     >
       {props.children}

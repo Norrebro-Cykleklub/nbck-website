@@ -1,8 +1,9 @@
 import React from 'react';
-import useScrollIntoView from '../hooks/scroll-into-view';
+import useScrollIntoView from '../hooks/use-scroll-into-view';
 import { useBooleanState } from '../hooks/use-boolean-state';
 import Link from './Link';
 import Sidebar from './Sidebar';
+import useSectionInView from '../hooks/use-section-in-view';
 
 interface NavbarProps {
   logo?: StaticImage;
@@ -12,6 +13,9 @@ interface NavbarProps {
 export default function NavbarInner({ logo, padding }: NavbarProps) {
   const [menuVisible, showMenu, hideMenu] = useBooleanState(false);
   const scrollIntoView = useScrollIntoView();
+  const { inView } = useSectionInView();
+
+  console.log(inView);
 
   return (
     <>
@@ -46,26 +50,25 @@ export default function NavbarInner({ logo, padding }: NavbarProps) {
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link
-                  className="nav-link js-menu-trigger"
-                  onClick={scrollIntoView('koncept')}
-                >
-                  Koncept
-                </Link>
-              </li>
-              <li className="nav-item" onClick={scrollIntoView('foelgos')}>
-                <Link className="nav-link js-menu-trigger">Følg</Link>
-              </li>
-              <li className="nav-item" onClick={scrollIntoView('klubliv')}>
-                <Link className="nav-link js-menu-trigger">Klubliv</Link>
-              </li>
-              <li className="nav-item" onClick={scrollIntoView('medlem')}>
-                <Link className="nav-link js-menu-trigger">Medlem</Link>
-              </li>
-              <li className="nav-item" onClick={scrollIntoView('omOs')}>
-                <Link className="nav-link js-menu-trigger">Om os</Link>
-              </li>
+              {[
+                { id: 'koncept', text: 'Koncept' },
+                { id: 'foelgos', text: 'Følg' },
+                { id: 'klubliv', text: 'Klubliv' },
+                { id: 'medlem', text: 'Medlem' },
+                { id: 'omOs', text: 'Om os' },
+              ].map(({ id, text }) => (
+                <li key={id} className="nav-item" onClick={scrollIntoView(id)}>
+                  <Link
+                    className={
+                      inView === id
+                        ? 'nav-link js-menu-trigger active'
+                        : 'nav-link js-menu-trigger'
+                    }
+                  >
+                    {text}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

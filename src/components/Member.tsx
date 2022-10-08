@@ -1,9 +1,11 @@
 import React from 'react';
 import { useBooleanState } from '../hooks/use-boolean-state';
+import useSectionInView from '../hooks/use-section-in-view';
 import PriceBenefitsDialog from './Dialogs/PriceBenefits';
 import Link from './Link';
 
 export default function MemberSection() {
+  const { ref } = useSectionInView('medlem');
   const [priceBenefitsVisible, openPriceBenefits, closePriceBenefits] =
     useBooleanState(false);
 
@@ -13,7 +15,7 @@ export default function MemberSection() {
         visible={priceBenefitsVisible}
         onClose={closePriceBenefits}
       />
-      <section className="bg-dark" id="medlem">
+      <section className="bg-dark" id="medlem" ref={ref}>
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">

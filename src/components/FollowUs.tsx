@@ -1,9 +1,12 @@
 import React from 'react';
+import useSectionInView from '../hooks/use-section-in-view';
 import Link from './Link';
 
 export default function FollowUsSection() {
+  const { ref } = useSectionInView('foelgos');
+
   return (
-    <section className="bg-dark" id="foelgos">
+    <section className="bg-dark" id="foelgos" ref={ref}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">

@@ -1,6 +1,7 @@
 import React from 'react';
 import styleHelpers from '../helpers/style-helpers';
-import useScrollIntoView from '../hooks/scroll-into-view';
+import useScrollIntoView from '../hooks/use-scroll-into-view';
+import useSectionInView from '../hooks/use-section-in-view';
 import { useLayoutContext } from './Layout/Context';
 import Link from './Link';
 import WithHover from './WithHover';
@@ -8,9 +9,10 @@ import WithHover from './WithHover';
 export default function ConceptSection() {
   const { contactForm } = useLayoutContext();
   const scrollIntoView = useScrollIntoView();
+  const { ref } = useSectionInView('koncept');
 
   return (
-    <section className="bg-light" id="koncept">
+    <section className="bg-light" id="koncept" ref={ref}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
