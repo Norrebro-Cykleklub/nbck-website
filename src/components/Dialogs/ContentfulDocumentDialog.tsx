@@ -23,17 +23,14 @@ export default function ContentfulDocumentDialog({
 
   return (
     <Dialog open={visible} onClose={onClose}>
-      {({ closeButton }) => (
-        <div style={{ textAlign }}>
-          <h2 className="breakword">{document?.title}</h2>
-          <p></p>
-          <h5>{document?.headline}</h5>
-          <br />
-          {!!document?.json && ContentfulContent({ json: document?.json })}
-          <p></p>
-          {closeButton}
-        </div>
-      )}
+      <div style={{ textAlign }}>
+        <h2 className="breakword">{document?.title}</h2>
+        <p></p>
+        <h5>{document?.headline}</h5>
+        <br />
+        {!!document?.json && ContentfulContent({ json: document?.json })}
+        <p></p>
+      </div>
     </Dialog>
   );
 }

@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 interface LegacyModalProps extends React.CSSProperties {
   onClose: () => void;
-  children: React.ReactNode;
+  closeButton: React.ReactNode;
+  children: (props: { backButton: JSX.Element }) => React.ReactNode;
 }
 
 export default function LegacyModal({
   onClose,
-  children,
+  closeButton,
+  children: _children,
   ...style
 }: LegacyModalProps) {
+  const backButton = useMemo(() => {
+    return (
+      <button
+        className="btn btn-primary"
+        data-dismiss="modal"
+        type="button"
+        onClick={onClose}
+        style={{ display: 'flex', alignItems: 'center', margin: 'auto' }}
+      >
+        <i className="fa fa-times" style={{ marginRight: 5 }}></i> Tilbage
+      </button>
+    );
+  }, [onClose]);
+
+  const children = useMemo(
+    () => _children({ backButton }),
+    [_children, backButton],
+  );
+
   return (
     <div
       className="nbro-modal modal fade show"
@@ -23,13 +44,9 @@ export default function LegacyModal({
         ...style,
       }}
     >
-      <div className="modal-dialog" style={{ margin: '5% 0' }}>
+      <div className="modal-dialog" style={{ margin: '0' }}>
         <div className="modal-content">
-          <div className="close-modal" data-dismiss="modal" onClick={onClose}>
-            <div className="lr">
-              <div className="rl"></div>
-            </div>
-          </div>
+          {closeButton}
           <div className="container">
             <div className="row">
               <div className="col-lg-10 mx-auto">

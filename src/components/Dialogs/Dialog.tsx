@@ -1,35 +1,35 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 import DialogSlide from '../DialogSlide';
 import LegacyModal from './LegacyModal';
+import WithHover from '../WithHover';
+import styled from 'styled-components';
 
 interface DialogProps {
   open: boolean;
   onClose: () => void;
-  children: (props: { closeButton: JSX.Element }) => React.ReactNode;
+  children: React.ReactNode;
 }
 
-export default function Dialog({
-  open,
-  onClose,
-  children: _children,
-}: DialogProps) {
+export default function Dialog({ open, onClose, children }: DialogProps) {
+  const navbarHeight = 80;
+
   const closeButton = useMemo(() => {
     return (
-      <button
-        className="btn btn-primary"
-        data-dismiss="modal"
-        type="button"
-        onClick={onClose}
-        style={{ display: 'flex', alignItems: 'center', margin: 'auto' }}
-      >
-        <i className="fa fa-times" style={{ marginRight: 5 }}></i> Tilbage
-      </button>
+      <CloseButtonContainerCss onClick={onClose}>
+        <CloseIcon sx={{ fontSize: '3em' }} />
+      </CloseButtonContainerCss>
     );
   }, [onClose]);
 
-  const children = useMemo(
-    () => _children({ closeButton }),
-    [_children, closeButton],
+  const ModalContent = useCallback(
+    ({ backButton }: { backButton: JSX.Element }) => (
+      <>
+        {children}
+        {backButton}
+      </>
+    ),
+    [children],
   );
 
   return (
@@ -37,9 +37,22 @@ export default function Dialog({
       open={open}
       onClose={onClose}
       fullWidth
-      sxPaper={{ maxWidth: 1210 }}
+      sxPaper={{
+        maxWidth: 1210,
+        maxHeight: `calc(100% - 64px - ${navbarHeight}px)`,
+        margin: `190px 32px 112px 32px`,
+      }}
     >
-      <LegacyModal onClose={onClose}>{children}</LegacyModal>
+      <LegacyModal closeButton={closeButton} onClose={onClose}>
+        {ModalContent}
+      </LegacyModal>
     </DialogSlide>
   );
 }
+
+const CloseButtonContainerCss = styled(WithHover)`
+  position: absolute;
+  display: flex;
+  top: 25px;
+  right: 25px;
+`;
