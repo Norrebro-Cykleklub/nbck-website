@@ -36,26 +36,29 @@ export default function MemberSection() {
                 kunne godt tænke dig at blive en bedre rytter gennem træning med
                 klubkammerater. Hvis du kan genkende dig selv i nedenstående, så
                 er du måske vores nye klubkammerat:
-                <ul className="text-muted-white" style={{ marginTop: '1rem' }}>
-                  <li>
-                    En cykeltur på 2-3 timer med indlagte intervaller er lige
-                    dig (vi kører selvfølgelig også både kort rolige turer og
-                    langfart indimellem)
-                  </li>
-                  <li>
-                    Du ønsker at blive en bedre, hurtigere og klogere
-                    cykelrytter – eller bare holde en god form i godt selskab
-                  </li>
-                  <li>
-                    Du er tryg ved at køre i en større gruppe eller vil gerne
-                    lære det
-                  </li>
-                  <li>
-                    Du kender eller vil gerne lære de forskellige tegn og
-                    signaler, man benytter, når man cykler i en gruppe
-                  </li>
-                </ul>
               </p>
+              <ul
+                className="text-muted-white"
+                style={{ marginTop: '1rem', lineHeight: '1.75' }}
+              >
+                <li>
+                  En cykeltur på 2-3 timer med indlagte intervaller er lige dig
+                  (vi kører selvfølgelig også både kort rolige turer og langfart
+                  indimellem)
+                </li>
+                <li>
+                  Du ønsker at blive en bedre, hurtigere og klogere cykelrytter
+                  – eller bare holde en god form i godt selskab
+                </li>
+                <li>
+                  Du er tryg ved at køre i en større gruppe eller vil gerne lære
+                  det
+                </li>
+                <li>
+                  Du kender eller vil gerne lære de forskellige tegn og
+                  signaler, man benytter, når man cykler i en gruppe
+                </li>
+              </ul>
             </div>
             <div className="col-md-4">
               <div className="row text-center">
