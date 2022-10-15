@@ -60,6 +60,34 @@ const config: GatsbyConfig = {
           -1)(),
       },
     },
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
+        web: [
+          {
+            name: `Montserrat`,
+            file: `https://fonts.googleapis.com/css?family=Montserrat:400,700`,
+          },
+          {
+            name: `Kaushan Script`,
+            file: `https://fonts.googleapis.com/css?family=Kaushan+Script`,
+          },
+          {
+            name: `Droid Serif`,
+            file: `https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic`,
+          },
+          {
+            name: `Roboto Slab`,
+            file: `https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700`,
+          },
+        ],
+      },
+    },
   ],
 };
 
