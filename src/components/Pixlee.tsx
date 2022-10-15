@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useCallback } from 'react';
+import { Script, ScriptStrategy } from 'gatsby';
 import windowSafe from './utils/windowSafe';
 
 export default function Pixlee() {
-  useEffect(() => {
+  const initPixlee = useCallback(() => {
     if (windowSafe) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const _window = windowSafe as any;
@@ -17,7 +18,11 @@ export default function Pixlee() {
 
   return (
     <>
-      <script src="//instafeed.assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js" />
+      <Script
+        src="//instafeed.assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js"
+        strategy={ScriptStrategy.postHydrate}
+        onLoad={initPixlee}
+      />
       <iframe
         id="pixlee_lightbox_iframe"
         width="100%"
@@ -36,7 +41,7 @@ export default function Pixlee() {
           border: 'none',
           overflow: 'hidden',
         }}
-      ></iframe>
+      />
     </>
   );
 }
