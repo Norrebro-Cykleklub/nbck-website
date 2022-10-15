@@ -11,6 +11,7 @@ lerna-debug.log
 # vim
 *.swp
 .env
+.env.*
 .next
 tempData.ts
 artifacts

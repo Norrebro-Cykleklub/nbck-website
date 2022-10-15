@@ -1,4 +1,17 @@
 import type { GatsbyConfig } from 'gatsby';
+import * as dotenv from 'dotenv';
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+
+const contentfulConfig = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+};
+
+if (!contentfulConfig.spaceId || !contentfulConfig.accessToken) {
+  throw new Error(
+    'Contentful spaceId and the access token need to be provided.',
+  );
+}
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -12,10 +25,7 @@ const config: GatsbyConfig = {
   plugins: [
     {
       resolve: 'gatsby-source-contentful',
-      options: {
-        accessToken: 'egbGRN8clPKVGyi7G4Waf9kxhO1nnzV8WeX_d-q5dpg',
-        spaceId: 'mxsvje0uqbt0',
-      },
+      options: contentfulConfig,
     },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
