@@ -10,15 +10,16 @@ interface ResizeObserverSize {
   height: number;
 }
 
+type ObservedElement = Nullable<HTMLElement>;
+
 interface ResizeObserverProps {
   /** Interval between function executions */
   throttleInterval?: number;
+  observedElement?: ObservedElement;
 }
 
 export default function useResizeObserver(props: ResizeObserverProps) {
-  const [observedElement, setObservedElement] = useState<HTMLElement | null>(
-    null,
-  );
+  const [observedElement, setObservedElement] = useState(props.observedElement);
   const [observedElementSize, _setObservedElementSize] =
     useState<ResizeObserverSize | null>(null);
 

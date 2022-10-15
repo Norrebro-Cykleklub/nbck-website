@@ -11,30 +11,28 @@ interface HeaderProps {
 
 export default function Header({ images }: HeaderProps) {
   const scrollIntoView = useScrollIntoView();
-  const [windowSize, setObservedElement] = useResizeObserver({
+  const [windowSize] = useResizeObserver({
     throttleInterval: 500,
+    observedElement: windowSafe?.document.body,
   });
   const [dynamicHeaderHeight, setDynamicHeaderHeight] = useState(
-    windowSafe?.innerHeight ?? 0,
+    windowSafe?.innerHeight ?? 1000,
   );
 
   useEffect(() => {
-    const bodyNode = windowSafe?.document.body;
-
-    if (!windowSize && bodyNode) {
-      setObservedElement(bodyNode);
-    }
-
-    if (windowSize) {
+    if (windowSize?.height) {
       setDynamicHeaderHeight(windowSize.height);
     }
-  }, [setObservedElement, windowSize]);
+  }, [windowSize?.height]);
 
   const nbckLogo = images.find(img => img.name === 'Norrebro_logo');
   const headerHeight = dynamicHeaderHeight ?? windowSafe?.innerHeight ?? 0;
 
   return (
-    <header className="masthead" style={{ height: headerHeight }}>
+    <header
+      className="masthead"
+      style={{ width: '100%', height: headerHeight }}
+    >
       <div className="container">
         <div className="intro-text">
           <img
