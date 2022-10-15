@@ -18,10 +18,10 @@ export default function Header({ images }: HeaderProps) {
   );
 
   useEffect(() => {
-    if (windowSafe) {
+    if (windowSafe && !windowSize?.height) {
       setObservedElement(windowSafe.document.body);
     }
-  }, [setObservedElement]);
+  }, [setObservedElement, windowSize?.height]);
 
   useEffect(() => {
     if (windowSize?.height) {
@@ -32,7 +32,7 @@ export default function Header({ images }: HeaderProps) {
   const nbckLogo = images.find(img => img.name === 'Norrebro_logo');
 
   return (
-    <HeaderCss className="masthead" height={dynamicHeaderHeight}>
+    <HeaderCss className="masthead" dynamicHeaderHeight={dynamicHeaderHeight}>
       <div className="container">
         <div className="intro-text">
           <img
@@ -52,9 +52,9 @@ export default function Header({ images }: HeaderProps) {
   );
 }
 
-const HeaderCss = styled.header<{ height: number }>`
+const HeaderCss = styled.header<{ dynamicHeaderHeight: number }>`
   width: 100%;
-  height: ${p => p.height}px;
+  height: ${p => p.dynamicHeaderHeight}px !important;
 `;
 
 const WithHoverCss = styled(WithHover)`
