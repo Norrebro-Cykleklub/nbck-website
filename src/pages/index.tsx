@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { graphql, HeadFC } from 'gatsby';
+import { graphql, HeadFC, Script, ScriptStrategy } from 'gatsby';
 import Index from '../components/pages/Index';
 import Layout from '../components/Layout/Layout';
 import Pixlee from '../components/Pixlee';
@@ -51,7 +51,7 @@ export const Head: HeadFC<IndexPageProps['data']> = ({ data }) => {
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
       <title>Nørrebro Cykleklub</title>
-      <script src={modernizrJs} />
+      <Script src={modernizrJs} strategy={ScriptStrategy.postHydrate} />
     </>
   );
 };
