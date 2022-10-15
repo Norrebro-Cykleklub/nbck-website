@@ -1,13 +1,15 @@
 import React, { useMemo } from 'react';
 
 interface LegacyModalProps extends React.CSSProperties {
-  onClose: () => void;
+  backButtonTitle?: string;
+  backButtonOnClick: () => void;
   closeButton: React.ReactNode;
   children: (props: { backButton: JSX.Element }) => React.ReactNode;
 }
 
 export default function LegacyModal({
-  onClose,
+  backButtonTitle,
+  backButtonOnClick,
   closeButton,
   children: _children,
   ...style
@@ -18,13 +20,14 @@ export default function LegacyModal({
         className="btn btn-primary"
         data-dismiss="modal"
         type="button"
-        onClick={onClose}
+        onClick={backButtonOnClick}
         style={{ display: 'flex', alignItems: 'center', margin: 'auto' }}
       >
-        <i className="fa fa-times" style={{ marginRight: 5 }}></i> Tilbage
+        <i className="fa fa-times" style={{ marginRight: 5 }}></i>{' '}
+        {backButtonTitle}
       </button>
     );
-  }, [onClose]);
+  }, [backButtonTitle, backButtonOnClick]);
 
   const children = useMemo(
     () => _children({ backButton }),

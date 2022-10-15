@@ -8,10 +8,18 @@ import styled from 'styled-components';
 interface DialogProps {
   open: boolean;
   onClose: () => void;
+  backButtonTitle?: string;
+  backButtonOnClick?: () => void;
   children: React.ReactNode;
 }
 
-export default function Dialog({ open, onClose, children }: DialogProps) {
+export default function Dialog({
+  open,
+  onClose,
+  backButtonTitle,
+  backButtonOnClick,
+  children,
+}: DialogProps) {
   const navbarHeight = 80;
 
   const closeButton = useMemo(() => {
@@ -43,7 +51,11 @@ export default function Dialog({ open, onClose, children }: DialogProps) {
         margin: `190px 32px 112px 32px`,
       }}
     >
-      <LegacyModal closeButton={closeButton} onClose={onClose}>
+      <LegacyModal
+        closeButton={closeButton}
+        backButtonTitle={backButtonTitle ?? 'Tilbage'}
+        backButtonOnClick={backButtonOnClick ?? onClose}
+      >
         {ModalContent}
       </LegacyModal>
     </DialogSlide>

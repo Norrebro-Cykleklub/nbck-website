@@ -1,8 +1,9 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import axios from 'axios';
 import { useLayoutContext } from '../Layout/Context';
 import Dialog from './Dialog';
 import windowSafe from '../utils/windowSafe';
+import isEmail from '../../helpers/is-email';
 
 export default function ContactFormDialog() {
   const { contactForm } = useLayoutContext();
@@ -27,6 +28,8 @@ export default function ContactFormDialog() {
     clear();
   }, [clear, contactForm]);
 
+  const onBackButtonClick = useCallback(() => setError(false), []);
+
   const submit = useCallback(async () => {
     await axios
       .post(windowSafe?.location.origin + '/.netlify/functions/contactForm', {
@@ -45,139 +48,99 @@ export default function ContactFormDialog() {
       });
   }, [email, message, name, phone]);
 
-  const SuccessDialogContent = useCallback(() => {
-    return (
-      <div id="nbroSlimModalBody" className="modal-body">
-        <h2 className="breakword">Besked afsendt</h2>
-        <p>Tak for din henvendelse. Vi har modtaget din besked.</p>
-        <button
-          className="btn btn-primary"
-          data-dismiss="modal"
-          type="button"
-          onClick={() => {
-            contactForm.hide();
-            clear();
-          }}
-        >
-          <i className="fa fa-times" /> Tilbage
-        </button>
-      </div>
-    );
-  }, [clear, contactForm]);
+  const canSubmit = [name, isEmail(email), phone, message].every(Boolean);
 
-  const ErrorDialogContent = useCallback(() => {
-    return (
-      <div id="nbroSlimModalBody" className="modal-body">
-        <h2 className="breakword">Beskeden kan ikke sendes</h2>
-        <p>
-          Beskeden kan ikke sendes da et eller flere af felterne ikke er udfyldt
-          korrekt. Prøv venligst igen.
-        </p>
-        <button
-          className="btn btn-primary"
-          data-dismiss="modal"
-          type="button"
-          onClick={() => {
-            setError(false);
-          }}
-        >
-          <i className="fa fa-times" /> Tilbage
-        </button>
-      </div>
-    );
-  }, []);
-
-  const canSubmit = [name, email, phone, message].every(Boolean);
-
-  const dialogContent = useMemo(() => {
-    if (success) {
-      return <SuccessDialogContent />;
-    }
-
-    if (error) {
-      return <ErrorDialogContent />;
-    }
-
-    return (
-      <>
-        <div className="row">
-          <div className="col-lg-12 text-center">
-            <h2 className="breakword">Kontakt os</h2>
-            <p className="item-intro text-muted">
-              Hvis du ønsker at vide mere, så send os en besked.
-            </p>
+  return (
+    <Dialog
+      open={contactForm.visible}
+      onClose={onClose}
+      backButtonTitle={success ? 'Luk' : 'Tilbage'}
+      backButtonOnClick={error ? onBackButtonClick : onClose}
+    >
+      {success && (
+        <>
+          <h2 className="breakword">Besked afsendt</h2>
+          <p>Tak for din henvendelse. Vi har modtaget din besked.</p>
+        </>
+      )}
+      {error && (
+        <>
+          <h2 className="breakword">Beskeden kan ikke sendes</h2>
+          <p>Der opstod en fejl. Prøv venligst igen senere.</p>
+        </>
+      )}
+      {!success && !error && (
+        <>
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="breakword">Kontakt os</h2>
+              <p className="item-intro text-muted">
+                Hvis du ønsker at vide mere, så send os en besked.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="row" id="kontaktModal">
-          <div className="col-lg-12">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="kontaktGroup">
-                  <input
-                    className="kontaktControl"
-                    placeholder="Dit navn *"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                  />
+          <div className="row" id="kontaktModal">
+            <div className="col-lg-12">
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="kontaktGroup">
+                    <input
+                      className="kontaktControl"
+                      placeholder="Dit navn *"
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                    />
+                  </div>
+                  <div className="kontaktGroup">
+                    <input
+                      type="email"
+                      className="kontaktControl"
+                      placeholder="Din email *"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      style={{
+                        border:
+                          email.length && !isEmail(email)
+                            ? '1px solid red'
+                            : '1px solid rgba(0, 0, 0, 0.15)',
+                      }}
+                    />
+                  </div>
+                  <div className="kontaktGroup">
+                    <input
+                      type="phone"
+                      className="kontaktControl"
+                      placeholder="Dit telefonnummer *"
+                      value={phone}
+                      onChange={e => setPhone(e.target.value)}
+                    />
+                  </div>
                 </div>
-                <div className="kontaktGroup">
-                  <input
-                    className="kontaktControl"
-                    placeholder="Din email *"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                  />
+                <div className="col-md-6">
+                  <div className="kontaktGroup">
+                    <textarea
+                      className="kontaktControl"
+                      placeholder="Din besked *"
+                      value={message}
+                      onChange={e => setMessage(e.target.value)}
+                    ></textarea>
+                  </div>
                 </div>
-                <div className="kontaktGroup">
-                  <input
-                    className="kontaktControl"
-                    placeholder="Dit telefonnummer *"
-                    value={phone}
-                    onChange={e => setPhone(e.target.value)}
-                  />
+                <div className="clearfix"></div>
+                <div className="col-lg-12 text-center">
+                  <button
+                    className={canSubmit ? 'btn btn-xl' : 'btn btn-xl disabled'}
+                    onClick={submit}
+                    disabled={!canSubmit}
+                  >
+                    Send besked
+                  </button>
                 </div>
-              </div>
-              <div className="col-md-6">
-                <div className="kontaktGroup">
-                  <textarea
-                    className="kontaktControl"
-                    placeholder="Din besked *"
-                    value={message}
-                    onChange={e => setMessage(e.target.value)}
-                  ></textarea>
-                </div>
-              </div>
-              <div className="clearfix"></div>
-              <div className="col-lg-12 text-center">
-                <button
-                  className={canSubmit ? 'btn btn-xl' : 'btn btn-xl disabled'}
-                  onClick={submit}
-                  disabled={!canSubmit}
-                >
-                  Send besked
-                </button>
               </div>
             </div>
           </div>
-        </div>
-      </>
-    );
-  }, [
-    ErrorDialogContent,
-    SuccessDialogContent,
-    canSubmit,
-    email,
-    error,
-    message,
-    name,
-    phone,
-    submit,
-    success,
-  ]);
-
-  return (
-    <Dialog open={contactForm.visible} onClose={onClose}>
-      {dialogContent}
+        </>
+      )}
     </Dialog>
   );
 }
