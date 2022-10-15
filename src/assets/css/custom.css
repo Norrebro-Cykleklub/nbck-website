@@ -172,7 +172,7 @@ header.masthead {
   color: #fff;
   background-image: url('../images/header-bg.jpg');
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: initial;
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;

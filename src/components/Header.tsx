@@ -26,12 +26,11 @@ export default function Header({ images }: HeaderProps) {
   }, [windowSize?.height]);
 
   const nbckLogo = images.find(img => img.name === 'Norrebro_logo');
-  const headerHeight = dynamicHeaderHeight ?? windowSafe?.innerHeight ?? 0;
 
   return (
     <header
       className="masthead"
-      style={{ width: '100%', height: headerHeight }}
+      style={{ width: '100%', height: dynamicHeaderHeight }}
     >
       <div className="container">
         <div className="intro-text">
