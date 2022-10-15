@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { createScrollIntoViewHandler } from '../helpers/scroll-into-view';
 import useResizeObserver from '../hooks/use-resize-observer';
@@ -10,29 +10,31 @@ interface HeaderProps {
 }
 
 export default function Header({ images }: HeaderProps) {
-  const [windowSize, setObservedElement] = useResizeObserver({
+  const [dynamicHeaderHeight, setDynamicHeaderHeight] = useState(1000);
+  const [windowSize, _setObservedElement] = useResizeObserver({
     throttleInterval: 500,
   });
-  const [dynamicHeaderHeight, setDynamicHeaderHeight] = useState(
-    windowSafe?.innerHeight ?? 1000,
+
+  const setObservedElement = useCallback(
+    () => _setObservedElement(windowSafe?.document.body),
+    [_setObservedElement],
   );
 
   useEffect(() => {
-    if (windowSafe && !windowSize?.height) {
-      setObservedElement(windowSafe.document.body);
-    }
-  }, [setObservedElement, windowSize?.height]);
-
-  useEffect(() => {
-    if (windowSize?.height) {
-      setDynamicHeaderHeight(windowSize.height);
-    }
-  }, [windowSize?.height]);
+    setDynamicHeaderHeight(windowSafe?.innerHeight ?? 1000);
+  }, [
+    /** Keep so header height will update on window size updates */
+    windowSize,
+  ]);
 
   const nbckLogo = images.find(img => img.name === 'Norrebro_logo');
 
   return (
-    <HeaderCss className="masthead" dynamicHeaderHeight={dynamicHeaderHeight}>
+    <HeaderCss
+      className="masthead"
+      dynamicHeaderHeight={dynamicHeaderHeight}
+      ref={setObservedElement}
+    >
       <div className="container">
         <div className="intro-text">
           <img
