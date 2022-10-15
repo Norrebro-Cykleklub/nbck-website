@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
 import windowSafe from '../components/utils/windowSafe';
+import scrollIntoView from 'scroll-into-view';
 
 export default function useScrollIntoView() {
-  const scrollIntoView = useCallback((id: string) => {
+  return useCallback((id: string) => {
     const options = {
       behavior: 'smooth',
       block: 'start',
@@ -13,8 +14,11 @@ export default function useScrollIntoView() {
       return () => windowSafe?.scrollTo({ behavior: options.behavior, top: 0 });
     }
 
-    return () => document.getElementById(id)?.scrollIntoView(options);
+    return () => {
+      const element = windowSafe?.document.getElementById(id);
+      if (element) {
+        scrollIntoView(element);
+      }
+    };
   }, []);
-
-  return scrollIntoView;
 }
