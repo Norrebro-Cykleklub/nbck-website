@@ -23,22 +23,21 @@ export default function IndexPage({ data }: IndexPageProps) {
     [data.allFile.edges],
   );
 
-  const logo = images.find(img => img.name === 'logo_simple');
+  const logo = useMemo(
+    () => images.find(img => img.name === 'logo_simple'),
+    [images],
+  );
 
   return (
     <Layout logo={logo}>
       <Index images={images} />
-      <Pixlee />{' '}
+      <Pixlee />
     </Layout>
   );
 }
 
 export const Head: HeadFC<IndexPageProps['data']> = ({ data }) => {
-  const files = useMemo(
-    () => data.allFile.edges.map(edge => edge.node),
-    [data.allFile.edges],
-  );
-
+  const files = data.allFile.edges.map(edge => edge.node);
   const [modernizrJs] = ['modernizr-2.6.2.js'].map(
     name => files.find(file => file.publicURL.endsWith(name))?.publicURL,
   );
