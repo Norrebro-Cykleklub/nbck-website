@@ -1,6 +1,6 @@
 import React from 'react';
 import styleHelpers from '../helpers/style-helpers';
-import useScrollIntoView from '../hooks/use-scroll-into-view';
+import { createScrollIntoViewHandler } from '../helpers/scroll-into-view';
 import useSectionInView from '../hooks/use-section-in-view';
 import { useLayoutContext } from './Layout/Context';
 import Link from './Link';
@@ -8,7 +8,6 @@ import WithHover from './WithHover';
 
 export default function ConceptSection() {
   const { contactForm } = useLayoutContext();
-  const scrollIntoView = useScrollIntoView();
   const { ref } = useSectionInView('koncept');
 
   return (
@@ -40,7 +39,7 @@ export default function ConceptSection() {
               om ugen og kører væddeløb i weekenden, og motionisten, der gennem
               struktureret træning vil blive en endnu bedre rytter i godt
               selskab. Har du lyst til at blive medlem?
-              <WithHover onClick={scrollIntoView('medlem')}>
+              <WithHover onClick={createScrollIntoViewHandler('medlem')}>
                 <span style={{ color: '#1b9400' }}> Læs mere her</span>
               </WithHover>
             </p>
@@ -91,7 +90,7 @@ export default function ConceptSection() {
             <ul className="list-inline quicklinks">
               <li className="list-inline-item">
                 <Link
-                  onClick={scrollIntoView('omOs')}
+                  onClick={createScrollIntoViewHandler('omOs')}
                   style={{ color: '#1b9400' }}
                 >
                   Læs mere om os

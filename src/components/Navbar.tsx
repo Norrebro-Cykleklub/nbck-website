@@ -14,16 +14,16 @@ interface NavbarProps {
 export default function Navbar({ logo, scrollElement }: NavbarProps) {
   const [stickyBackgroundVisibility, setStickyBackgroundVisibility] =
     useState(0);
-  const pointOfMaxVisibility = 190;
 
   const handleStickyBackgroundVisibility = useCallback((): void => {
-    if (!windowExist) {
-      return;
-    }
+    if (!windowExist) return;
 
-    const scrollPosition = scrollElement
-      ? scrollElement.scrollTop
-      : window.pageYOffset || document.documentElement.scrollTop;
+    const pointOfMaxVisibility = 190;
+
+    const scrollPosition =
+      scrollElement?.scrollTop ??
+      window.pageYOffset ??
+      document.documentElement.scrollTop;
 
     const scrollProgress = Math.min(scrollPosition, pointOfMaxVisibility);
 
@@ -36,11 +36,9 @@ export default function Navbar({ logo, scrollElement }: NavbarProps) {
   }, [handleStickyBackgroundVisibility]);
 
   useEffect(() => {
-    if (!windowExist) {
-      return;
-    }
+    if (!windowExist) return;
 
-    const element = scrollElement || window;
+    const element = scrollElement ?? window;
 
     element.addEventListener('scroll', handleStickyBackgroundVisibility);
     return () =>

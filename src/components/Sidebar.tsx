@@ -1,9 +1,9 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styleHelpers from '../helpers/style-helpers';
 import Fade from '@mui/material/Fade';
 import Slide from '@mui/material/Slide';
 import useLockBodyScroll from '../hooks/use-lock-body-scroll';
-import useScrollIntoView from '../hooks/use-scroll-into-view';
+import { createScrollIntoViewHandler } from '../helpers/scroll-into-view';
 
 const styles = {
   modal: (backdropVisible: boolean) => {
@@ -77,16 +77,19 @@ interface SidebarProps {
 
 /** Has controlled breakpoints */
 export default function Sidebar({ isOpen, close }: SidebarProps) {
-  const scrollIntoView = useScrollIntoView();
   const [backdropVisible, setBackdropVisible] = useState(false);
   const [lockBodyScroll, setLockBodyScroll] = useState(false);
   const { setRef: setLockBodyScrollRef } = useLockBodyScroll({
     enabled: lockBodyScroll,
   });
 
-  const handleBackdrop = useCallback((visible: boolean): void => {
-    setBackdropVisible(visible);
-    setLockBodyScroll(visible);
+  const handleBackdrop = useMemo(() => {
+    const fn = (visible: boolean) => {
+      setBackdropVisible(visible);
+      setLockBodyScroll(visible);
+    };
+
+    return { show: () => fn(true), hide: () => fn(false) };
   }, []);
 
   const Item = useCallback(
@@ -116,17 +119,18 @@ export default function Sidebar({ isOpen, close }: SidebarProps) {
 
   const timeout = 700;
 
+  const modalStyles = useMemo(
+    () => styles.modal(backdropVisible) as React.CSSProperties,
+    [backdropVisible],
+  );
+
   return (
-    <div
-      style={{
-        ...(styles.modal(backdropVisible) as React.CSSProperties),
-      }}
-    >
+    <div style={modalStyles}>
       <Fade
         in={isOpen}
         timeout={timeout}
-        onEntering={() => handleBackdrop(true)}
-        onExited={() => handleBackdrop(false)}
+        onEntering={handleBackdrop.show}
+        onExited={handleBackdrop.hide}
       >
         <div onClick={close} style={styles.backdrop as React.CSSProperties} />
       </Fade>
@@ -137,11 +141,23 @@ export default function Sidebar({ isOpen, close }: SidebarProps) {
           style={styles.sidebar as React.CSSProperties}
         >
           <div style={styles.sidebar.menu as React.CSSProperties}>
-            <Item text="Koncept" onClick={scrollIntoView('koncept')} />
-            <Item text="Følg" onClick={scrollIntoView('foelgos')} />
-            <Item text="Klubliv" onClick={scrollIntoView('klubliv')} />
-            <Item text="Medlem" onClick={scrollIntoView('medlem')} />
-            <Item text="Om os" onClick={scrollIntoView('omOs')} />
+            <Item
+              text="Koncept"
+              onClick={createScrollIntoViewHandler('koncept')}
+            />
+            <Item
+              text="Følg"
+              onClick={createScrollIntoViewHandler('foelgos')}
+            />
+            <Item
+              text="Klubliv"
+              onClick={createScrollIntoViewHandler('klubliv')}
+            />
+            <Item
+              text="Medlem"
+              onClick={createScrollIntoViewHandler('medlem')}
+            />
+            <Item text="Om os" onClick={createScrollIntoViewHandler('omOs')} />
           </div>
         </div>
       </Slide>

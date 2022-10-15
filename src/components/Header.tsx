@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import useScrollIntoView from '../hooks/use-scroll-into-view';
+import { createScrollIntoViewHandler } from '../helpers/scroll-into-view';
 import useResizeObserver from '../hooks/use-resize-observer';
 import windowSafe from './utils/windowSafe';
 import WithHover from './WithHover';
@@ -10,7 +10,6 @@ interface HeaderProps {
 }
 
 export default function Header({ images }: HeaderProps) {
-  const scrollIntoView = useScrollIntoView();
   const [windowSize] = useResizeObserver({
     throttleInterval: 500,
     observedElement: windowSafe?.document.body,
@@ -40,17 +39,20 @@ export default function Header({ images }: HeaderProps) {
           />
         </div>
       </div>
-
-      <WithHover onClick={scrollIntoView('koncept')}>
-        <CircleButtonContainerCss>
+      <CircleButtonContainerCss>
+        <WithHoverCss onClick={createScrollIntoViewHandler('koncept')}>
           <CircleButtonCss>
             <ArrowCss />
           </CircleButtonCss>
-        </CircleButtonContainerCss>
-      </WithHover>
+        </WithHoverCss>
+      </CircleButtonContainerCss>
     </header>
   );
 }
+
+const WithHoverCss = styled(WithHover)`
+  display: inline-flex;
+`;
 
 const CircleButtonContainerCss = styled.div`
   padding-bottom: 85px;
