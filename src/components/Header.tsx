@@ -10,13 +10,18 @@ interface HeaderProps {
 }
 
 export default function Header({ images }: HeaderProps) {
-  const [windowSize] = useResizeObserver({
+  const [windowSize, setObservedElement] = useResizeObserver({
     throttleInterval: 500,
-    observedElement: windowSafe?.document.body,
   });
   const [dynamicHeaderHeight, setDynamicHeaderHeight] = useState(
     windowSafe?.innerHeight ?? 1000,
   );
+
+  useEffect(() => {
+    if (windowSafe) {
+      setObservedElement(windowSafe.document.body);
+    }
+  }, [setObservedElement]);
 
   useEffect(() => {
     if (windowSize?.height) {
@@ -27,10 +32,7 @@ export default function Header({ images }: HeaderProps) {
   const nbckLogo = images.find(img => img.name === 'Norrebro_logo');
 
   return (
-    <header
-      className="masthead"
-      style={{ width: '100%', height: dynamicHeaderHeight }}
-    >
+    <HeaderCss className="masthead" height={dynamicHeaderHeight}>
       <div className="container">
         <div className="intro-text">
           <img
@@ -46,9 +48,14 @@ export default function Header({ images }: HeaderProps) {
           </CircleButtonCss>
         </WithHoverCss>
       </CircleButtonContainerCss>
-    </header>
+    </HeaderCss>
   );
 }
+
+const HeaderCss = styled.header<{ height: number }>`
+  width: 100%;
+  height: ${p => p.height}px;
+`;
 
 const WithHoverCss = styled(WithHover)`
   display: inline-flex;
