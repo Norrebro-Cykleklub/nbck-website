@@ -1,5 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 const sgMail = require('@sendgrid/mail');
+const Sentry = require('@sentry/serverless');
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+});
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 

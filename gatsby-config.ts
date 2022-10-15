@@ -40,6 +40,16 @@ const config: GatsbyConfig = {
       },
       __key: 'assets',
     },
+    {
+      resolve: '@sentry/gatsby',
+      options: {
+        dsn: process.env.SENTRY_DSN,
+        environment: process.env.NODE_ENV,
+        enabled: (() =>
+          ['production', 'staging'].indexOf(process.env.NODE_ENV ?? '') !==
+          -1)(),
+      },
+    },
   ],
 };
 
