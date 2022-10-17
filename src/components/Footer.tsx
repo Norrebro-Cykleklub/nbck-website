@@ -4,18 +4,11 @@ import ContentfulDocumentDialog from './Dialogs/ContentfulDocumentDialog';
 import Link from './Link';
 
 export default function FooterSection() {
-  const [tosVisible, openTos, closeTos] = useBooleanState(false);
   const [privacyPolicyVisible, openPrivacyPolicy, closePrivacyPolicy] =
     useBooleanState(false);
 
   return (
     <>
-      <ContentfulDocumentDialog
-        id="tos"
-        textAlign="center"
-        visible={tosVisible}
-        onClose={closeTos}
-      />
       <ContentfulDocumentDialog
         id="privacyPolicy"
         textAlign="left"
@@ -52,17 +45,12 @@ export default function FooterSection() {
             </div>
             <div className="col-md-5">
               <ul className="list-inline quicklinks">
-                <li className="list-inline-item">
+                <li className="list-inline-item" style={{ marginRight: 0 }}>
                   <Link
                     onClick={openPrivacyPolicy}
                     style={{ color: '#1b9400' }}
                   >
                     Privatlivspolitik
-                  </Link>
-                </li>
-                <li className="list-inline-item">
-                  <Link onClick={openTos} style={{ color: '#1b9400' }}>
-                    Vilkår for brug
                   </Link>
                 </li>
               </ul>
