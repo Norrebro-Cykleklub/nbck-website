@@ -20,7 +20,7 @@ export default function AboutUsSection() {
     <>
       <ContentfulDocumentDialog
         id="bylaws"
-        textAlign="center"
+        textAlign="left"
         visible={bylawsVisible}
         onClose={closeBylawsDialog}
       />
