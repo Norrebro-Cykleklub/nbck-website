@@ -19,7 +19,6 @@ exports.handler = async function sendGridEmail(event, context, callback) {
       'torefolkerman@gmail.com',
       'tobiasjohansorensen@gmail.com',
       'norrebrock@gmail.com',
-      'jensen.mike57@gmail.com',
     ],
     from: 'noreply@norrebrock.dk',
     subject: 'Nørrebro cykleklub - Kontakt',
