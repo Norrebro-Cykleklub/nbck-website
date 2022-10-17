@@ -1,7 +1,7 @@
 # Nørrebro CK website
 
 ## Basic services
-**Language:**
+**Language & frameworks:**
 TypeScript, React.js, Gatsby.js
 
 **CMS:**
