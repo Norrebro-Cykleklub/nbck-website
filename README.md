@@ -1,6 +1,5 @@
 # Nørrebro CK website
 
-## Basic services
 **Language & frameworks:**
 TypeScript, React.js, Gatsby.js
 
@@ -13,6 +12,5 @@ Cloudflare
 **Hosting:**
 Netlify
 
-## Extra services
 **Contact formular mail:** SendGrid, Netlify Cloud Function
 
