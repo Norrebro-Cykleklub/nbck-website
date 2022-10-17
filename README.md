@@ -1,7 +1,18 @@
 # Nørrebro CK website
 
-**Built in React.js** 
+## Basic services
+**Language:**
+TypeScript, React.js, Gatsby.js
 
-**Contentful as CMS system**
+**CMS:**
+Contentful
 
-**Gatsby for SSR and connecting Contentful**
+**DNS:**
+Cloudflare
+
+**Hosting:**
+Netlify
+
+## Extra services
+**Contact formular mail:** SendGrid, Netlify Cloud Function
+
