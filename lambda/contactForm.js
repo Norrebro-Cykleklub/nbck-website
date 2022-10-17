@@ -15,7 +15,12 @@ exports.handler = async function sendGridEmail(event, context, callback) {
   const html = `<div><strong>Ny besked via Nørrebro CK's kontaktformular</strong><p>Navn: ${name}</p><p>Mail: ${email}</p><p>Telefon: ${phone}</p><p>Besked: ${message}</p><p>Afsenders IP addresse: ${clientIP}</p></div>`;
 
   const msg = {
-    to: ['torefolkerman@gmail.com', 'tobiasjohansorensen@gmail.com'],
+    to: [
+      'torefolkerman@gmail.com',
+      'tobiasjohansorensen@gmail.com',
+      'norrebrock@gmail.com',
+      'jensen.mike57@gmail.com',
+    ],
     from: 'noreply@norrebrock.dk',
     subject: 'Nørrebro cykleklub - Kontakt',
     html,
