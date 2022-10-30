@@ -9,7 +9,7 @@ import { WindowLocation } from '@reach/router';
 import { useBooleanState } from '../../hooks/use-boolean-state';
 
 interface ContextProviderProps {
-  location: WindowLocation<WindowLocation['state']>;
+  location?: WindowLocation<WindowLocation['state']>;
   children: ReactNode;
 }
 
@@ -50,8 +50,9 @@ export default function LayoutProvider(props: ContextProviderProps) {
   const [contactFormVisible, showContactForm, hideContactForm] =
     useBooleanState(false);
 
-  const params = new URLSearchParams(location.search);
-  const debug = typeof params.get('debug') === 'string';
+  const debug = props.location?.search
+    ? new URLSearchParams(props.location.search).get('debug') === 'string'
+    : false;
 
   return (
     <LayoutContext.Provider

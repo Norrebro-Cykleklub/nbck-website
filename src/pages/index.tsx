@@ -11,7 +11,7 @@ interface IndexPageProps {
   data: {
     allFile: AllFiles;
   };
-  location: WindowLocation<WindowLocation['state']>;
+  location?: WindowLocation<WindowLocation['state']>;
 }
 
 export default function IndexPage({ data, location }: IndexPageProps) {

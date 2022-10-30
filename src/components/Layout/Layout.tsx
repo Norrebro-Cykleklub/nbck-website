@@ -6,7 +6,7 @@ import LayoutProvider from './Context';
 
 interface LayoutProps {
   logo?: StaticImage;
-  location: WindowLocation<WindowLocation['state']>;
+  location?: WindowLocation<WindowLocation['state']>;
   children: React.ReactNode;
 }
 
