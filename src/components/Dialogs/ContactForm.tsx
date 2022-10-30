@@ -4,6 +4,7 @@ import { useLayoutContext } from '../Layout/Context';
 import Dialog from './Dialog';
 import windowSafe from '../utils/windowSafe';
 import isEmail from '../../helpers/is-email';
+import ContentfulText from '../ContentfulText';
 
 export default function ContactFormDialog() {
   const { contactForm } = useLayoutContext();
@@ -59,23 +60,33 @@ export default function ContactFormDialog() {
     >
       {success && (
         <>
-          <h2 className="breakword">Besked afsendt</h2>
-          <p>Tak for din henvendelse. Vi har modtaget din besked.</p>
+          <h2 className="breakword">
+            <ContentfulText id={58} />
+          </h2>
+          <p>
+            <ContentfulText id={59} />
+          </p>
         </>
       )}
       {error && (
         <>
-          <h2 className="breakword">Beskeden kan ikke sendes</h2>
-          <p>Der opstod en fejl. Prøv venligst igen senere.</p>
+          <h2 className="breakword">
+            <ContentfulText id={60} />
+          </h2>
+          <p>
+            <ContentfulText id={61} />
+          </p>
         </>
       )}
       {!success && !error && (
         <>
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="breakword">Kontakt os</h2>
+              <h2 className="breakword">
+                <ContentfulText id={62} />
+              </h2>
               <p className="item-intro text-muted">
-                Hvis du ønsker at vide mere, så send os en besked.
+                <ContentfulText id={63} />
               </p>
             </div>
           </div>
@@ -133,7 +144,7 @@ export default function ContactFormDialog() {
                     onClick={submit}
                     disabled={!canSubmit}
                   >
-                    Send besked
+                    <ContentfulText id={64} />
                   </button>
                 </div>
               </div>

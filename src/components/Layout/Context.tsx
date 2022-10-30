@@ -5,9 +5,11 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import { WindowLocation } from '@reach/router';
 import { useBooleanState } from '../../hooks/use-boolean-state';
 
 interface ContextProviderProps {
+  location: WindowLocation<WindowLocation['state']>;
   children: ReactNode;
 }
 
@@ -16,6 +18,7 @@ export type Sections = Nullable<
 >;
 
 interface LayoutContextProps {
+  debug: boolean;
   sectionInView: {
     id: Sections;
     set: React.Dispatch<React.SetStateAction<Sections>>;
@@ -28,6 +31,7 @@ interface LayoutContextProps {
 }
 
 const LayoutContext = createContext<LayoutContextProps>({
+  debug: false,
   sectionInView: {
     id: null,
     set: () => null,
@@ -46,10 +50,14 @@ export default function LayoutProvider(props: ContextProviderProps) {
   const [contactFormVisible, showContactForm, hideContactForm] =
     useBooleanState(false);
 
+  const params = new URLSearchParams(location.search);
+  const debug = typeof params.get('debug') === 'string';
+
   return (
     <LayoutContext.Provider
       value={useMemo(
         () => ({
+          debug,
           sectionInView: {
             id: sectionInView,
             set: setSectionInView,
@@ -60,7 +68,13 @@ export default function LayoutProvider(props: ContextProviderProps) {
             hide: hideContactForm,
           },
         }),
-        [contactFormVisible, hideContactForm, sectionInView, showContactForm],
+        [
+          contactFormVisible,
+          debug,
+          hideContactForm,
+          sectionInView,
+          showContactForm,
+        ],
       )}
     >
       {props.children}

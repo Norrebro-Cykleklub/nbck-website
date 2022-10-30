@@ -1,5 +1,6 @@
 import React from 'react';
 import useSectionInView from '../hooks/use-section-in-view';
+import ContentfulText from './ContentfulText';
 import Link from './Link';
 
 export default function FollowUsSection() {
@@ -10,10 +11,12 @@ export default function FollowUsSection() {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
-            <h2 className="section-heading">Følg os</h2>
+            <h2 className="section-heading">
+              <ContentfulText id={23} />
+            </h2>
             <hr />
             <h3 className="section-subheading text-muted">
-              Følg Nørrebro Cykleklub der hvor det passer dig:
+              <ContentfulText id={24} />
             </h3>
           </div>
         </div>

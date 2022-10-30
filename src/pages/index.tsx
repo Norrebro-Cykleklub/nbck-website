@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { graphql, HeadFC, Script, ScriptStrategy } from 'gatsby';
+import { WindowLocation } from '@reach/router';
 import Index from '../components/pages/Index';
 import Layout from '../components/Layout/Layout';
 import Pixlee from '../components/Pixlee';
@@ -10,11 +11,10 @@ interface IndexPageProps {
   data: {
     allFile: AllFiles;
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  extensions: any;
+  location: WindowLocation<WindowLocation['state']>;
 }
 
-export default function IndexPage({ data }: IndexPageProps) {
+export default function IndexPage({ data, location }: IndexPageProps) {
   const images = useMemo(
     () =>
       data.allFile.edges
@@ -29,7 +29,7 @@ export default function IndexPage({ data }: IndexPageProps) {
   );
 
   return (
-    <Layout logo={logo}>
+    <Layout logo={logo} location={location}>
       <Index images={images} />
       <Pixlee />
     </Layout>
