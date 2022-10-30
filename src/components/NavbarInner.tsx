@@ -4,6 +4,7 @@ import { useBooleanState } from '../hooks/use-boolean-state';
 import Link from './Link';
 import Sidebar from './Sidebar';
 import useSectionInView from '../hooks/use-section-in-view';
+import ContentfulText from './ContentfulText';
 
 interface NavbarProps {
   logo?: StaticImage;
@@ -16,12 +17,12 @@ export default function NavbarInner({ logo, padding }: NavbarProps) {
 
   const navbarItems = useMemo(() => {
     return [
-      { id: 'koncept', text: 'Koncept' },
-      { id: 'foelgos', text: 'Følg' },
-      { id: 'klubliv', text: 'Klubliv' },
-      { id: 'medlem', text: 'Medlem' },
-      { id: 'omOs', text: 'Om os' },
-    ].map(({ id, text }) => (
+      { id: 'koncept', contentfulTextId: 0 },
+      { id: 'foelgos', contentfulTextId: 1 },
+      { id: 'klubliv', contentfulTextId: 2 },
+      { id: 'medlem', contentfulTextId: 3 },
+      { id: 'omOs', contentfulTextId: 4 },
+    ].map(({ id, contentfulTextId }) => (
       <li
         key={id}
         className="nav-item"
@@ -34,7 +35,7 @@ export default function NavbarInner({ logo, padding }: NavbarProps) {
               : 'nav-link js-menu-trigger'
           }
         >
-          {text}
+          <ContentfulText id={contentfulTextId} />
         </Link>
       </li>
     ));
@@ -71,7 +72,7 @@ export default function NavbarInner({ logo, padding }: NavbarProps) {
             aria-label="Toggle navigation"
             onClick={menuVisible ? hideMenu : showMenu}
           >
-            Menu <i className="fa fa-bars"></i>
+            <ContentfulText id={68} /> <i className="fa fa-bars"></i>
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">{navbarItems}</ul>

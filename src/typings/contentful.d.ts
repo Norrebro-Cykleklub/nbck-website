@@ -11,4 +11,13 @@ interface ContentfulDocument {
   json?: any;
 }
 
+interface ContentfulText {
+  id: string;
+  contentfulid: number;
+  text_: {
+    text_: string;
+  };
+}
+
 type AllContentfulDocuments = Edges<ContentfulDocument>;
+type AllContentfulText = Edges<ContentfulText>;

@@ -4,6 +4,7 @@ import Fade from '@mui/material/Fade';
 import Slide from '@mui/material/Slide';
 import useLockBodyScroll from '../hooks/use-lock-body-scroll';
 import { createScrollIntoViewHandler } from '../helpers/scroll-into-view';
+import ContentfulText from './ContentfulText';
 
 const styles = {
   modal: (backdropVisible: boolean) => {
@@ -66,7 +67,7 @@ const styles = {
 };
 
 interface ItemProps {
-  text: string;
+  contentfulTextId: number;
   onClick: () => void;
 }
 
@@ -93,7 +94,7 @@ export default function Sidebar({ isOpen, close }: SidebarProps) {
   }, []);
 
   const Item = useCallback(
-    ({ text, onClick }: ItemProps): JSX.Element => {
+    ({ contentfulTextId, onClick }: ItemProps): JSX.Element => {
       return (
         <div style={styles.sidebar.menu.item as React.CSSProperties}>
           <li
@@ -108,7 +109,7 @@ export default function Sidebar({ isOpen, close }: SidebarProps) {
               className="nav-link js-menu-trigger"
               style={{ color: '#b6b6b6' }}
             >
-              {text}
+              <ContentfulText id={contentfulTextId} />
             </a>
           </li>
         </div>
@@ -142,22 +143,25 @@ export default function Sidebar({ isOpen, close }: SidebarProps) {
         >
           <div style={styles.sidebar.menu as React.CSSProperties}>
             <Item
-              text="Koncept"
+              contentfulTextId={0}
               onClick={createScrollIntoViewHandler('koncept')}
             />
             <Item
-              text="Følg"
+              contentfulTextId={1}
               onClick={createScrollIntoViewHandler('foelgos')}
             />
             <Item
-              text="Klubliv"
+              contentfulTextId={2}
               onClick={createScrollIntoViewHandler('klubliv')}
             />
             <Item
-              text="Medlem"
+              contentfulTextId={3}
               onClick={createScrollIntoViewHandler('medlem')}
             />
-            <Item text="Om os" onClick={createScrollIntoViewHandler('omOs')} />
+            <Item
+              contentfulTextId={4}
+              onClick={createScrollIntoViewHandler('omOs')}
+            />
           </div>
         </div>
       </Slide>

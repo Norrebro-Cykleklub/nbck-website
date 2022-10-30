@@ -1,5 +1,6 @@
 import React from 'react';
 import { useBooleanState } from '../hooks/use-boolean-state';
+import ContentfulText from './ContentfulText';
 import ContentfulDocumentDialog from './Dialogs/ContentfulDocumentDialog';
 import Link from './Link';
 
@@ -50,7 +51,7 @@ export default function FooterSection() {
                     onClick={openPrivacyPolicy}
                     style={{ color: '#1b9400' }}
                   >
-                    Privatlivspolitik
+                    <ContentfulText id={57} />
                   </Link>
                 </li>
               </ul>
