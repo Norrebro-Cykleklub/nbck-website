@@ -51,7 +51,8 @@ export default function LayoutProvider(props: ContextProviderProps) {
     useBooleanState(false);
 
   const debug = props.location?.search
-    ? new URLSearchParams(props.location.search).get('debug') === 'string'
+    ? typeof new URLSearchParams(props.location.search).get('debug') ===
+      'string'
     : false;
 
   return (
