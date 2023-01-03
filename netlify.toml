@@ -9,3 +9,6 @@
 [build.environment]
   YARN_VERSION = "1.9.4"
   YARN_FLAGS = "--no-ignore-optional"
+
+[functions."refreshInstagramFeed"]
+schedule = "@daily"
