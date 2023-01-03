@@ -12,6 +12,9 @@ Cloudflare
 **Hosting:**
 Netlify
 
-**Contact formular mail:** SendGrid, Netlify Cloud Function
-**Instagram feed:** Facebook Developer Account, Netlify Cloud Function
+**Contact formular mail:** 
+SendGrid, Netlify Cloud Function
+
+**Instagram feed:** 
+Facebook Developer Account, Netlify Cloud Function
 
