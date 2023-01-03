@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import useSectionInView from '../hooks/use-section-in-view';
 import ContentfulText from './ContentfulText';
+import InstagramFeed from './InstagramFeed';
 import Link from './Link';
 
-export default function FollowUsSection() {
+interface FollowUsSectionProps {
+  images: StaticImage[];
+}
+
+export default function FollowUsSection({ images }: FollowUsSectionProps) {
   const { ref } = useSectionInView('foelgos');
+
+  const instagramAvatar = useMemo(
+    () => images.find(img => img.name === 'instagram-avatar'),
+    [images],
+  );
 
   return (
     <section className="bg-dark" id="foelgos" ref={ref}>
@@ -53,6 +63,7 @@ export default function FollowUsSection() {
             </ul>
           </div>
         </div>
+        <InstagramFeed instagramAvatar={instagramAvatar} />
       </div>
     </section>
   );

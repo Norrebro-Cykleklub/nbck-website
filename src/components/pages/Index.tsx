@@ -16,7 +16,7 @@ export default function Index({ images }: IndexProps) {
     <>
       <Header images={images} />
       <ConceptSection />
-      <FollowUsSection />
+      <FollowUsSection images={images} />
       <ClubLifeSection images={images} />
       <MemberSection />
       <AboutUsSection />

@@ -8,7 +8,7 @@ export default function ContentfulText({ id }: { id: number }) {
   const getText = useContentfulTexts();
   const text = getText(id);
 
-  if (!debug) return text;
+  if (!debug) return <span>{text}</span>;
 
   return (
     <Tooltip title={id} arrow>
