@@ -36,6 +36,7 @@ export default function FollowUsSection({ images }: FollowUsSectionProps) {
               <li className="list-inline-item">
                 <Link
                   className="facebook"
+                  rel="noopener noreferrer"
                   target="_blank"
                   href="https://www.facebook.com/groups/1999819213570632"
                 >
@@ -45,6 +46,7 @@ export default function FollowUsSection({ images }: FollowUsSectionProps) {
               <li className="list-inline-item">
                 <Link
                   className="instagram"
+                  rel="noopener noreferrer"
                   target="_blank"
                   href="https://www.instagram.com/norrebro_cykleklub/"
                 >
@@ -54,6 +56,7 @@ export default function FollowUsSection({ images }: FollowUsSectionProps) {
               <li className="list-inline-item">
                 <Link
                   className="strava-logo"
+                  rel="noopener noreferrer"
                   target="_blank"
                   href="https://www.strava.com/clubs/NorrebroCK"
                 >

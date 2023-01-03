@@ -24,7 +24,11 @@ export default function InstagramFeed({ instagramAvatar }: InstagramFeedProps) {
       } = post;
 
       return (
-        <WithHover onClick={() => windowSafe?.open(permalink, '_blank')}>
+        <WithHover
+          onClick={() =>
+            windowSafe?.open(permalink, '_blank', 'noopener,noreferrer')
+          }
+        >
           <CardCss>
             <HeaderCss>
               <AvatarCss

@@ -64,6 +64,7 @@ export default function MemberSection() {
                   <Link
                     href="https://www.holdsport.dk/team_invitation/210786/c68090cb68c48920a7f58ebfffa79a0c3ddda228"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="btn btn-xl"
                   >
                     <ContentfulText id={42} />
