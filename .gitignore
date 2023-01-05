@@ -26,3 +26,5 @@ bin
 tsconfig.tsbuildinfo
 .eslintcache
 .vscode
+# Local Netlify folder
+.netlify

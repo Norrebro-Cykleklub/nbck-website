@@ -61,7 +61,7 @@ const _contentful = {
   setFeed: async (feed, newInstagramToken) => {
     console.log('Setting new Instagram feed');
 
-    clientManagement
+    await clientManagement
       .getSpace(contentfulSpace)
       .then(space => space.getEnvironment('master'))
       .then(environment => environment.getEntry(contentfulEntryId))
@@ -125,7 +125,7 @@ exports.handler = async function (event, context) {
     }
 
     const feed = await getNewFeed(newInstagramToken);
-    _contentful.setFeed(feed, newInstagramToken);
+    await _contentful.setFeed(feed, newInstagramToken);
   } catch (error) {
     console.error('Failed to fetch Instagram feed', error);
   }
