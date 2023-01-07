@@ -79,9 +79,9 @@ const _contentful = {
           },
         ]),
       )
-      .then(entry => {
+      .then(async entry => {
         console.log(`Entry ${entry.sys.id} updated.`);
-        entry.publish();
+        await entry.publish();
       })
       .catch(console.error);
   },
