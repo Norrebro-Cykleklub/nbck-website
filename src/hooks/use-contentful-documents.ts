@@ -6,6 +6,9 @@ const contentfulDocumentsId = [
   'privacyPolicy',
   'bylaws',
   'regulations',
+  'club-life-training',
+  'club-life-races',
+  'club-life-travel',
 ] as const;
 export type ContentfulDocumentId = typeof contentfulDocumentsId[number];
 
