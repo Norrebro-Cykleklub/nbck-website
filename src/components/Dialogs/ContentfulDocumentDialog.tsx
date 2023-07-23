@@ -20,6 +20,10 @@ export default function ContentfulDocumentDialog({
 }: ContentfulDocumentDialogProps) {
   const getDocument = useContentfulDocuments();
   const document = useMemo(() => getDocument(id), [getDocument, id]);
+  const Document = useMemo(
+    () => ContentfulContent({ json: document?.json }),
+    [document?.json],
+  );
 
   return (
     <Dialog open={visible} onClose={onClose}>
@@ -28,7 +32,7 @@ export default function ContentfulDocumentDialog({
         <p></p>
         <h5>{document?.headline}</h5>
         <br />
-        {!!document?.json && ContentfulContent({ json: document?.json })}
+        {!!document?.json && Document}
         <p></p>
       </div>
     </Dialog>
