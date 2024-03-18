@@ -31,7 +31,6 @@ export default function IndexPage({ data, location }: IndexPageProps) {
   return (
     <Layout logo={logo} location={location}>
       <Index images={images} />
-      <Pixlee />
     </Layout>
   );
 }
