@@ -20,7 +20,7 @@ exports.handler = async function sendGridEmail(event, context, callback) {
       'tobiasjohansorensen@gmail.com',
       'norrebrock@gmail.com',
     ],
-    from: 'noreply@norrebrock.dk',
+    from: 'noreply@nbck.dk',
     subject: 'Nørrebro cykleklub - Kontakt',
     html,
   };
