@@ -27,7 +27,7 @@ p {
   line-height: 1.75;
 }
 a {
-  color: #1b9400;
+  color: #1936f7;
 }
 a.active,
 a:active,
@@ -57,7 +57,7 @@ h6.breakword {
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: #1b9400;
+  border-color: #1936f7;
 }
 section {
   padding: 100px 50px;
@@ -81,11 +81,11 @@ section h3.section-subheading {
     padding: 150px 100px;
   }
   ::-moz-selection {
-    background: #1b9400;
+    background: #1936f7;
     text-shadow: none;
   }
   ::selection {
-    background: #1b9400;
+    background: #1936f7;
     text-shadow: none;
   }
   img::selection {
@@ -95,7 +95,7 @@ section h3.section-subheading {
     background: transparent;
   }
   body {
-    -webkit-tap-highlight-color: #1b9400;
+    -webkit-tap-highlight-color: #1936f7;
   }
 }
 #mainNav {
@@ -109,7 +109,7 @@ section h3.section-subheading {
   padding: 11px;
   color: #fff;
   border: 0;
-  background-color: #1b9400;
+  background-color: #1936f7;
   font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
     Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -138,7 +138,7 @@ section h3.section-subheading {
 }
 #mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #1b9400;
+  color: #1936f7;
 }
 @media (min-width: 992px) {
   #mainNav {
@@ -283,7 +283,7 @@ header.masthead .btn-circle:hover {
   padding-right: 5px;
 }
 #koncept .container .highlighted {
-  color: #1b9400;
+  color: #1936f7;
 }
 #koncept .service-heading {
   margin: 15px 0;
@@ -328,7 +328,7 @@ header.masthead .btn-circle:hover {
 #foelgos .container .foelgOsButtons ul.social-buttons li a:active,
 #foelgos .container .foelgOsButtons ul.social-buttons li a:focus,
 #foelgos .container .foelgOsButtons ul.social-buttons li a:hover {
-  background-color: #1b9400;
+  background-color: #1936f7;
 }
 #foelgos .container .foelgOsButtons ul.social-buttons li a.strava-logo {
   background-color: #fc4c02;
@@ -337,7 +337,7 @@ header.masthead .btn-circle:hover {
   background-image: url('../images/logos/strava_logo_white.png');
 }
 #foelgos .container .foelgOsButtons ul.social-buttons li a.strava-logo:hover {
-  background-color: #1b9400;
+  background-color: #1936f7;
 }
 #klubliv {
   padding-left: 0;
@@ -462,7 +462,7 @@ header.masthead .btn-circle:hover {
   height: 236px;
 }
 #kontaktModal .kontaktControl:focus {
-  border-color: #1b9400;
+  border-color: #1936f7;
   box-shadow: none;
 }
 #kontaktModal ::-webkit-input-placeholder {
@@ -539,7 +539,7 @@ header.masthead .btn-circle:hover {
 #medlem ul.social-buttons li a:active,
 #medlem ul.social-buttons li a:focus,
 #medlem ul.social-buttons li a:hover {
-  background-color: #1b9400;
+  background-color: #1936f7;
 }
 #medlemModal {
   padding-bottom: 20px;
@@ -570,7 +570,7 @@ header.masthead .btn-circle:hover {
   height: 236px;
 }
 #medlemModal .indmeldingControl:focus {
-  border-color: #1b9400;
+  border-color: #1936f7;
   box-shadow: none;
 }
 #medlemModal ::-webkit-input-placeholder {
@@ -627,7 +627,7 @@ section#omOs .konceptvalue {
   padding-right: 15px;
 }
 section#omOs .highlighted {
-  color: #1b9400;
+  color: #1936f7;
 }
 section#omOs .kontaktOsSection {
   margin-top: 20px;
@@ -678,7 +678,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:active,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
-  background-color: #1b9400;
+  background-color: #1936f7;
 }
 ul.social-buttons li a.strava-logo {
   background-color: #fc4c02;
@@ -686,7 +686,7 @@ ul.social-buttons li a.strava-logo {
   background-image: url('../images/logos/strava_logo_white.png');
 }
 ul.social-buttons li a.strava-logo:hover {
-  background-color: #1b9400;
+  background-color: #1936f7;
 }
 .nbro-modal .modal-dialog {
   max-width: none;
@@ -778,7 +778,7 @@ ul.social-buttons li a.strava-logo:hover {
   opacity: 0;
 }
 .text-primary {
-  color: #1b9400 !important;
+  color: #1936f7 !important;
 }
 .text-muted {
   color: #5c5c5c !important;
@@ -786,8 +786,8 @@ ul.social-buttons li a.strava-logo:hover {
 .btn-primary {
   font-weight: 700;
   color: #fff;
-  border-color: #1b9400;
-  background-color: #1b9400;
+  border-color: #1936f7;
+  background-color: #1936f7;
   font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
     Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -837,11 +837,11 @@ ul.social-buttons li a.strava-logo:hover {
 fieldset[disabled] .btn-primary.focus,
 fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary:hover {
-  border-color: #1b9400;
-  background-color: #1b9400;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-primary .badge {
-  color: #1b9400;
+  color: #1936f7;
   background-color: #fff;
 }
 .btn-xl {
@@ -850,8 +850,8 @@ fieldset[disabled] .btn-primary:hover {
   padding: 20px 40px;
   border-radius: 3px;
   color: #fff;
-  border-color: #1b9400;
-  background-color: #1b9400;
+  border-color: #1936f7;
+  background-color: #1936f7;
   font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
     Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -901,11 +901,11 @@ fieldset[disabled] .btn-primary:hover {
 fieldset[disabled] .btn-xl.focus,
 fieldset[disabled] .btn-xl:focus,
 fieldset[disabled] .btn-xl:hover {
-  border-color: #1b9400;
-  background-color: #1b9400;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-xl .badge {
-  color: #1b9400;
+  color: #1936f7;
   background-color: #fff;
 }
 .btn-md {
@@ -914,8 +914,8 @@ fieldset[disabled] .btn-xl:hover {
   padding: 10px 20px;
   border-radius: 3px;
   color: #fff;
-  border-color: #1b9400;
-  background-color: #1b9400;
+  border-color: #1936f7;
+  background-color: #1936f7;
   font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
     Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -965,11 +965,11 @@ fieldset[disabled] .btn-xl:hover {
 fieldset[disabled] .btn-md.focus,
 fieldset[disabled] .btn-md:focus,
 fieldset[disabled] .btn-md:hover {
-  border-color: #1b9400;
-  background-color: #1b9400;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-md .badge {
-  color: #1b9400;
+  color: #1936f7;
   background-color: #fff;
 }
 .bg-dark {
