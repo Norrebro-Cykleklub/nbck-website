@@ -511,7 +511,7 @@ header.masthead .btn-circle:hover {
   color: #fff;
 }
 #medlem .text-muted-white {
-  color: #d5d5d5;
+  color: #fff;
 }
 #medlem .medlemInfoSection {
   text-transform: uppercase;
@@ -781,7 +781,7 @@ ul.social-buttons li a.strava-logo:hover {
   color: #1936f7 !important;
 }
 .text-muted {
-  color: #fff !important;
+  color: #000 !important;
 }
 .btn-primary {
   font-weight: 700;
