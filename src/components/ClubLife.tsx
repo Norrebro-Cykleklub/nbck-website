@@ -126,7 +126,7 @@ export default function ClubLifeSection({ images }: ClubLifeSectionProps) {
             <div className="col-md-12 text-center">
               <p className="projects-interested text-muted">
                 <ContentfulText id={30} />{' '}
-                <Link onClick={contactForm.show} style={{ color: '#1b9400' }}>
+                <Link onClick={contactForm.show} style={{ color: '#1936f7' }}>
                   <ContentfulText id={31} />
                 </Link>{' '}
                 <ContentfulText id={32} />
