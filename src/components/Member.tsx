@@ -73,7 +73,7 @@ export default function MemberSection() {
                 <div className="col-md-12 medlemInfoSection">
                   <Link
                     onClick={openPriceBenefits}
-                    style={{ color: '#1b9400' }}
+                    style={{ color: '#1936f7' }}
                   >
                     <ContentfulText id={43} />
                   </Link>
