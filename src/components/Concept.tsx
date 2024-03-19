@@ -44,7 +44,7 @@ export default function ConceptSection() {
               </span>{' '}
               <ContentfulText id={10} />
               <WithHover onClick={createScrollIntoViewHandler('medlem')}>
-                <span style={{ color: '#1b9400' }}>
+                <span style={{ color: '#1936f7' }}>
                   {' '}
                   <ContentfulText id={11} />
                 </span>
@@ -87,7 +87,7 @@ export default function ConceptSection() {
               <Link
                 className="kontaktOsLink"
                 onClick={contactForm.show}
-                style={{ color: '#1b9400' }}
+                style={{ color: '#1936f7' }}
               >
                 <ContentfulText id={20} />
               </Link>{' '}
@@ -101,7 +101,7 @@ export default function ConceptSection() {
               <li className="list-inline-item">
                 <Link
                   onClick={createScrollIntoViewHandler('omOs')}
-                  style={{ color: '#1b9400' }}
+                  style={{ color: '#1936f7' }}
                 >
                   <ContentfulText id={22} />
                 </Link>
