@@ -73,8 +73,8 @@ section h3.section-subheading {
   font-style: ;
   margin-bottom: 50px;
   text-transform: none;
-  font-family: 'Enduro-blackitalic2', 'Enduro-blackitalic', 'Droid Serif',
-    'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
 }
 @media (min-width: 768px) {
   section {
@@ -190,7 +190,7 @@ header.masthead .intro-text .img-responsive {
 }
 header.masthead .intro-text .intro-lead-in {
   font-size: 22px;
-  font-style: italic;
+  font-style: ;
   line-height: 22px;
   margin-bottom: 25px;
   font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
@@ -236,11 +236,11 @@ header.masthead .btn-circle:hover {
   }
   header.masthead .intro-text .intro-lead-in {
     font-size: 40px;
-    font-style: italic;
+    font-style: ;
     line-height: 40px;
     margin-bottom: 25px;
-    font-family: 'Enduro-blackitalic2', 'Enduro-blackitalic', 'Droid Serif',
-      'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
   }
   header.masthead .intro-text .img-responsive {
     max-width: 40%;
@@ -411,10 +411,10 @@ header.masthead .btn-circle:hover {
 }
 #klubliv .klubliv-item .klubliv-caption p {
   font-size: 16px;
-  font-style: italic;
+  font-style: ;
   margin: 0;
-  font-family: 'Enduro-blackitalic2', 'Enduro-blackitalic', 'Droid Serif',
-    'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
 }
 #klubliv * {
   z-index: 2;
@@ -723,10 +723,10 @@ ul.social-buttons li a.strava-logo:hover {
 }
 .nbro-modal .modal-content p.item-intro {
   font-size: 16px;
-  font-style: italic;
+  font-style: ;
   margin: 20px 0 30px;
-  font-family: 'Enduro-blackitalic2', 'Enduro-blackitalic', 'Droid Serif',
-    'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Enduro-medium2', 'Enduro-medium', 'Cabin', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
 }
 .nbro-modal .modal-content ul.list-inline {
   margin-top: 0;
