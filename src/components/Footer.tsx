@@ -51,7 +51,7 @@ export default function FooterSection() {
                 <li className="list-inline-item" style={{ marginRight: 0 }}>
                   <Link
                     onClick={openPrivacyPolicy}
-                    style={{ color: '#1b9400' }}
+                    style={{ color: '#1936f7' }}
                   >
                     <ContentfulText id={57} />
                   </Link>
