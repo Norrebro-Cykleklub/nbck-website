@@ -781,7 +781,7 @@ ul.social-buttons li a.strava-logo:hover {
   color: #1936f7 !important;
 }
 .text-muted {
-  color: #5c5c5c !important;
+  color: #fff !important;
 }
 .btn-primary {
   font-weight: 700;
@@ -795,13 +795,13 @@ ul.social-buttons li a.strava-logo:hover {
 .btn-primary.focus,
 .btn-primary:focus {
   color: #fff;
-  border-color: #041500;
-  background-color: #126100;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-primary:hover {
   color: #fff;
-  border-color: #105700;
-  background-color: #126100;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-primary.active,
 .btn-primary:active,
@@ -859,20 +859,20 @@ fieldset[disabled] .btn-primary:hover {
 .btn-xl.focus,
 .btn-xl:focus {
   color: #fff;
-  border-color: #041500;
-  background-color: #126100;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-xl:hover {
   color: #fff;
-  border-color: #105700;
-  background-color: #126100;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-xl.active,
 .btn-xl:active,
 .open > .btn-xl.dropdown-toggle {
   color: #fff;
-  border-color: #105700;
-  background-color: #126100;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-xl.active.focus,
 .btn-xl.active:focus,
@@ -884,8 +884,8 @@ fieldset[disabled] .btn-primary:hover {
 .open > .btn-xl.dropdown-toggle:focus,
 .open > .btn-xl.dropdown-toggle:hover {
   color: #fff;
-  border-color: #041500;
-  background-color: #0b3d00;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-xl.active,
 .btn-xl:active,
@@ -923,20 +923,20 @@ fieldset[disabled] .btn-xl:hover {
 .btn-md.focus,
 .btn-md:focus {
   color: #fff;
-  border-color: #041500;
-  background-color: #126100;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-md:hover {
   color: #fff;
-  border-color: #105700;
-  background-color: #126100;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-md.active,
 .btn-md:active,
 .open > .btn-md.dropdown-toggle {
   color: #fff;
-  border-color: #105700;
-  background-color: #126100;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-md.active.focus,
 .btn-md.active:focus,
@@ -948,8 +948,8 @@ fieldset[disabled] .btn-xl:hover {
 .open > .btn-md.dropdown-toggle:focus,
 .open > .btn-md.dropdown-toggle:hover {
   color: #fff;
-  border-color: #041500;
-  background-color: #0b3d00;
+  border-color: #1936f7;
+  background-color: #1936f7;
 }
 .btn-md.active,
 .btn-md:active,
