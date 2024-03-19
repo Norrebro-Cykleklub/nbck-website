@@ -88,14 +88,14 @@ export default function AboutUsSection() {
                 <li className="list-inline-item">
                   <Link
                     onClick={openRegulationsDialog}
-                    style={{ color: '#1b9400' }}
+                    style={{ color: '#1936f7' }}
                   >
                     <ContentfulText id={55} />
                   </Link>
                 </li>
 
                 <li className="list-inline-item">
-                  <Link onClick={openBylawsDialog} style={{ color: '#1b9400' }}>
+                  <Link onClick={openBylawsDialog} style={{ color: '#1936f7' }}>
                     <ContentfulText id={56} />
                   </Link>
                 </li>
