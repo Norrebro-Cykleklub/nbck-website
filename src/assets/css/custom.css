@@ -376,7 +376,7 @@ header.masthead .btn-circle:hover {
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background: rgba(27, 148, 0, 0.8);
+  background: rgba(25, 54, 247, 1);
 }
 #klubliv .klubliv-item .klubliv-link .klubliv-hover:hover {
   opacity: 1;
